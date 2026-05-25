@@ -66,34 +66,30 @@ Route::middleware('auth')->group(function () {
     Route::post('/gyms/{gym}/checkin',                [GymController::class, 'checkin'])->name('gyms.checkin');
 });
 
-// Gym Partner Portal (gym_admin only)
+// Gym Partner Portal — read-only views accessible by gym_admin AND all active staff
+Route::middleware(['auth', 'gym.staff'])->prefix('gym-portal')->name('gym-portal.')->group(function () {
+    Route::get('/',              [GymPortalController::class, 'index'])->name('index');
+    Route::get('/earnings',      [GymPortalController::class, 'earnings'])->name('earnings');
+    Route::get('/bookings',      [GymPortalController::class, 'bookings'])->name('bookings');
+    Route::get('/reviews',       [GymPortalController::class, 'reviews'])->name('reviews');
+    Route::get('/checkin-screen',[GymPortalController::class, 'checkinScreen'])->name('checkin-screen');
+});
+
+// Gym Partner Portal — management actions (gym_admin only)
 Route::middleware(['auth', 'role:gym_admin'])->prefix('gym-portal')->name('gym-portal.')->group(function () {
-    Route::get('/',                          [GymPortalController::class, 'index'])->name('index');
-    Route::get('/earnings',                  [GymPortalController::class, 'earnings'])->name('earnings');
     Route::get('/profile',                   [GymPortalController::class, 'profile'])->name('profile');
     Route::patch('/profile',                 [GymPortalController::class, 'updateProfile'])->name('profile.update');
     Route::get('/classes',                   [GymPortalController::class, 'classes'])->name('classes');
     Route::post('/classes',                  [GymPortalController::class, 'storeClass'])->name('classes.store');
     Route::patch('/classes/{class}',         [GymPortalController::class, 'updateClass'])->name('classes.update');
     Route::post('/classes/{class}/toggle',   [GymPortalController::class, 'toggleClass'])->name('classes.toggle');
-    Route::get('/bookings',                  [GymPortalController::class, 'bookings'])->name('bookings');
-    Route::get('/reviews',                   [GymPortalController::class, 'reviews'])->name('reviews');
-
-    // QR Code
     Route::get('/qr-code',                   [GymPortalController::class, 'qrCode'])->name('qr-code');
     Route::post('/qr-code/regenerate',       [GymPortalController::class, 'regenerateQr'])->name('qr-code.regenerate');
-
-    // Staff Management (gym_admin only)
     Route::get('/staff',                     [GymPortalController::class, 'staff'])->name('staff.index');
     Route::get('/staff/invite',              [GymPortalController::class, 'inviteStaff'])->name('staff.invite');
     Route::post('/staff/invite',             [GymPortalController::class, 'storeInvite'])->name('staff.store');
     Route::patch('/staff/{staff}/role',      [GymPortalController::class, 'updateRole'])->name('staff.role');
     Route::delete('/staff/{staff}',          [GymPortalController::class, 'removeStaff'])->name('staff.remove');
-});
-
-// Checkin Screen (gym_admin OR gym staff)
-Route::middleware(['auth', 'gym.staff'])->group(function () {
-    Route::get('/gym-portal/checkin-screen', [GymPortalController::class, 'checkinScreen'])->name('gym-portal.checkin-screen');
 });
 
 // Admin Routes (platform_admin only)

@@ -21,7 +21,11 @@ class GymPortalController extends Controller
 {
     private function gym()
     {
-        return auth()->user()->adminForGym;
+        $user = auth()->user();
+        if ($user->isGymAdmin()) {
+            return $user->adminForGym;
+        }
+        return $user->gymStaff()->where('is_active', true)->first()?->gym;
     }
 
     public function index()

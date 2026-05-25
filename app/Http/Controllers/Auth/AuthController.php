@@ -32,7 +32,19 @@ class AuthController extends Controller
             'platform_admin' => redirect()->route('admin.dashboard'),
             'employer_admin' => redirect()->route('dashboard.index'),
             'gym_admin'      => redirect()->route('gym-portal.index'),
-            default          => redirect()->route('home'),
+            default          => $this->redirectStaff(Auth::user()) ?? redirect()->route('home'),
+        };
+    }
+
+    private function redirectStaff(User $user)
+    {
+        $staff = $user->gymStaff()->where('is_active', true)->first();
+        if (!$staff) return null;
+
+        return match($staff->role) {
+            'cashier'                          => redirect()->route('gym-portal.checkin-screen'),
+            'manager', 'trainer', 'receptionist' => redirect()->route('gym-portal.index'),
+            default                            => null,
         };
     }
 
