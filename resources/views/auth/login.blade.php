@@ -70,6 +70,10 @@
             class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
             Member — dara@smartretail.com.kh
         </button>
+        <button onclick="fillLogin('gymadmin@fitrepublic.com.kh','password123')"
+            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
+            Gym Admin — gymadmin@fitrepublic.com.kh
+        </button>
     </div>
 </div>
 
