@@ -20,6 +20,8 @@
             <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-500 hover:text-gray-800">Dashboard</a>
             <a href="{{ route('admin.payments.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payments</a>
             <a href="{{ route('admin.gym-applications.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Gym Applications</a>
+            <a href="{{ route('admin.gyms.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Gyms</a>
+            <a href="{{ route('admin.payouts.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payouts</a>
             <a href="{{ route('admin.settings') }}" class="text-sm font-medium text-teal-600">Settings</a>
             <form method="POST" action="{{ route('logout') }}" class="inline">
                 @csrf
@@ -98,6 +100,44 @@
         <p class="text-sm text-blue-700">
             <strong>Note:</strong> This exchange rate will be used for all new invoices. Existing invoices will retain their original exchange rate.
         </p>
+    </div>
+
+    {{-- Revenue Share Settings --}}
+    <div class="mt-8 bg-white rounded-xl border border-gray-200 p-6">
+        <h3 class="font-semibold mb-1">Revenue Share Settings</h3>
+        <p class="text-sm text-gray-500 mb-6">Configure how many check-ins equal one payout unit per tier, and the default KhmerFit cut.</p>
+
+        <form method="POST" action="{{ route('admin.settings.revenue-config') }}">
+            @csrf
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Check-ins per unit — Gold</label>
+                    <input type="number" name="checkins_per_unit_gold" value="{{ old('checkins_per_unit_gold', $checkinsGold) }}" min="1" required
+                           class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Check-ins per unit — Silver</label>
+                    <input type="number" name="checkins_per_unit_silver" value="{{ old('checkins_per_unit_silver', $checkinsSilver) }}" min="1" required
+                           class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Check-ins per unit — Bronze</label>
+                    <input type="number" name="checkins_per_unit_bronze" value="{{ old('checkins_per_unit_bronze', $checkinsBronze) }}" min="1" required
+                           class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Default KhmerFit Cut (%)</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" name="revenue_share_pct_default" value="{{ old('revenue_share_pct_default', $revenueShareDefault) }}" min="0" max="100" step="0.01" required
+                               class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">
+                        <span class="text-gray-500">%</span>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
+                Save Revenue Config
+            </button>
+        </form>
     </div>
 
 </div>

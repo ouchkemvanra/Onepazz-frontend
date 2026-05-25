@@ -17,6 +17,7 @@ class Gym extends Model
         'activity_types', 'amenities', 'tier', 'operating_hours',
         'admin_user_id', 'status', 'partner_since',
         'average_rating', 'review_count',
+        'monthly_fee_usd', 'revenue_share_pct', 'daily_capacity_limit',
     ];
 
     protected $casts = [
@@ -79,4 +80,35 @@ class Gym extends Model
     public function scopeActive($query)               { return $query->where('status', 'active'); }
     public function scopeByCity($query, string $city) { return $query->where('city', $city); }
     public function scopeByTier($query, string $tier) { return $query->where('tier', $tier); }
+
+    public function checkinsPerUnit(): int
+    {
+        $key = 'checkins_per_unit_' . $this->tier;
+        return (int) \App\Models\PlatformConfig::get($key, match($this->tier) {
+            'gold'   => 15,
+            'silver' => 20,
+            default  => 25,
+        });
+    }
+
+    public function effectiveRevenueSharePct(): float
+    {
+        if ($this->revenue_share_pct !== null) {
+            return (float) $this->revenue_share_pct;
+        }
+        return (float) \App\Models\PlatformConfig::get('revenue_share_pct_default', 30);
+    }
+
+    public function dailyCheckinCount(): int
+    {
+        return $this->checkins()->whereDate('checked_in_at', today())->count();
+    }
+
+    public function hasReachedDailyLimit(): bool
+    {
+        if ($this->daily_capacity_limit === null) {
+            return false;
+        }
+        return $this->dailyCheckinCount() >= $this->daily_capacity_limit;
+    }
 }

@@ -31,6 +31,7 @@ class AuthController extends Controller
         return match(Auth::user()->role) {
             'platform_admin' => redirect()->route('admin.dashboard'),
             'employer_admin' => redirect()->route('dashboard.index'),
+            'gym_admin'      => redirect()->route('gym-portal.index'),
             default          => redirect()->route('home'),
         };
     }

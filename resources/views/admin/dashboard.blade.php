@@ -20,6 +20,8 @@
             <a href="{{ route('admin.dashboard') }}" class="text-sm font-medium text-teal-600">Dashboard</a>
             <a href="{{ route('admin.payments.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payments</a>
             <a href="{{ route('admin.gym-applications.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Gym Applications</a>
+            <a href="{{ route('admin.gyms.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Gyms</a>
+            <a href="{{ route('admin.payouts.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payouts</a>
             <a href="{{ route('admin.settings') }}" class="text-sm text-gray-500 hover:text-gray-800">Settings</a>
             <form method="POST" action="{{ route('logout') }}" class="inline">
                 @csrf
@@ -64,6 +66,12 @@
             </a>
             <a href="{{ route('admin.gym-applications.index') }}" class="text-sm border border-gray-200 bg-white px-4 py-3 rounded-lg hover:bg-gray-50 transition text-center">
                 🏋️ Gym Applications
+            </a>
+            <a href="{{ route('admin.gyms.index') }}" class="text-sm border border-gray-200 bg-white px-4 py-3 rounded-lg hover:bg-gray-50 transition text-center">
+                🏢 Manage Gyms
+            </a>
+            <a href="{{ route('admin.payouts.index') }}" class="text-sm border border-gray-200 bg-white px-4 py-3 rounded-lg hover:bg-gray-50 transition text-center">
+                💰 Payouts
             </a>
             <a href="{{ route('admin.settings') }}" class="text-sm border border-gray-200 bg-white px-4 py-3 rounded-lg hover:bg-gray-50 transition text-center">
                 ⚙️ Settings

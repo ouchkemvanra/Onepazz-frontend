@@ -27,6 +27,21 @@ class GymClass extends Model
         return $this->hasMany(Checkin::class, 'class_id');
     }
 
+    public function bookings()
+    {
+        return $this->hasMany(ClassBooking::class, 'gym_class_id');
+    }
+
+    public function confirmedCount(): int
+    {
+        return $this->bookings()->where('status', 'confirmed')->count();
+    }
+
+    public function waitlistedCount(): int
+    {
+        return $this->bookings()->where('status', 'waitlisted')->count();
+    }
+
     public function isToday(): bool
     {
         $todayNum = (int) now()->format('N') % 7;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkin;
 use App\Models\Gym;
 use Illuminate\Http\Request;
 
@@ -68,5 +69,20 @@ class GymController extends Controller
             : false;
 
         return view('gyms.show', compact('gym', 'todayClasses', 'isSaved'));
+    }
+
+    public function checkin(Request $request, Gym $gym)
+    {
+        if ($gym->hasReachedDailyLimit()) {
+            return back()->withErrors(['checkin' => 'This gym has reached its daily member capacity.']);
+        }
+
+        Checkin::create([
+            'user_id'       => auth()->id(),
+            'gym_id'        => $gym->id,
+            'checked_in_at' => now(),
+        ]);
+
+        return back()->with('success', 'Checked in successfully.');
     }
 }
