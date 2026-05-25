@@ -9,11 +9,13 @@ class Checkin extends Model
     protected $fillable = [
         'user_id', 'gym_id', 'employee_id', 'class_id',
         'checked_in_at', 'checked_out_at', 'duration_minutes', 'notes',
+        'latitude', 'longitude', 'location_verified', 'checkin_method',
     ];
 
     protected $casts = [
-        'checked_in_at'  => 'datetime',
-        'checked_out_at' => 'datetime',
+        'checked_in_at'     => 'datetime',
+        'checked_out_at'    => 'datetime',
+        'location_verified' => 'boolean',
     ];
 
     public function user()

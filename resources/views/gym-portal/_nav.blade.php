@@ -9,8 +9,11 @@
             <a href="{{ route('gym-portal.earnings') }}" class="text-sm {{ request()->routeIs('gym-portal.earnings') ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Earnings</a>
             <a href="{{ route('gym-portal.classes') }}"  class="text-sm {{ request()->routeIs('gym-portal.classes')  ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Classes</a>
             <a href="{{ route('gym-portal.bookings') }}" class="text-sm {{ request()->routeIs('gym-portal.bookings') ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Bookings</a>
-            <a href="{{ route('gym-portal.reviews') }}"  class="text-sm {{ request()->routeIs('gym-portal.reviews')  ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Reviews</a>
-            <a href="{{ route('gym-portal.profile') }}"  class="text-sm {{ request()->routeIs('gym-portal.profile')  ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Profile</a>
+            <a href="{{ route('gym-portal.reviews') }}"        class="text-sm {{ request()->routeIs('gym-portal.reviews')        ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Reviews</a>
+            <a href="{{ route('gym-portal.staff.index') }}"   class="text-sm {{ request()->routeIs('gym-portal.staff*')         ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Staff</a>
+            <a href="{{ route('gym-portal.qr-code') }}"       class="text-sm {{ request()->routeIs('gym-portal.qr-code*')       ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">QR Code</a>
+            <a href="{{ route('gym-portal.checkin-screen') }}" class="text-sm {{ request()->routeIs('gym-portal.checkin-screen') ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Screen</a>
+            <a href="{{ route('gym-portal.profile') }}"        class="text-sm {{ request()->routeIs('gym-portal.profile')        ? 'font-semibold text-teal-600' : 'text-gray-500 hover:text-gray-800' }}">Profile</a>
             <form method="POST" action="{{ route('logout') }}" class="inline">
                 @csrf
                 <button class="text-sm text-gray-500 hover:text-gray-800">Logout</button>

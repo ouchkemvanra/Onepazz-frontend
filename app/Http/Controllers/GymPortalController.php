@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\StaffInviteMail;
 use App\Models\Checkin;
 use App\Models\ClassBooking;
 use App\Models\GymClass;
+use App\Models\GymStaff;
 use App\Models\PlatformConfig;
+use App\Models\User;
 use App\Services\RevenueShareService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class GymPortalController extends Controller
 {
@@ -261,5 +267,123 @@ class GymPortalController extends Controller
         }
 
         return view('gym-portal.reviews', compact('gym', 'reviews', 'breakdown'));
+    }
+
+    // ── QR Code ──────────────────────────────────────────────────────────────
+
+    public function qrCode()
+    {
+        $gym = $this->gym();
+        abort_if(!$gym, 403);
+
+        if (!$gym->qr_code) {
+            $gym->generateQrToken();
+        }
+
+        $qrSvg = QrCode::format('svg')->size(300)->errorCorrection('H')->generate($gym->qr_code);
+
+        return view('gym-portal.qr-code', compact('gym', 'qrSvg'));
+    }
+
+    public function regenerateQr()
+    {
+        $gym = $this->gym();
+        abort_if(!$gym, 403);
+
+        $gym->generateQrToken();
+
+        return back()->with('success', 'QR code regenerated. The old QR code is now invalid.');
+    }
+
+    // ── Check-in Screen ───────────────────────────────────────────────────────
+
+    public function checkinScreen(Request $request)
+    {
+        $gym = $request->input('current_gym'); // injected by GymStaffMiddleware
+        abort_if(!$gym, 403);
+
+        $todayCheckins = Checkin::where('gym_id', $gym->id)
+            ->whereDate('checked_in_at', today())
+            ->with('employee')
+            ->latest('checked_in_at')
+            ->get();
+
+        $staffRole = auth()->user()->isGymAdmin()
+            ? 'Owner'
+            : ucfirst(auth()->user()->gymStaffRoleAt($gym->id) ?? 'Staff');
+
+        return view('gym-portal.checkin-screen', compact('gym', 'todayCheckins', 'staffRole'));
+    }
+
+    // ── Staff Management ──────────────────────────────────────────────────────
+
+    public function staff()
+    {
+        $gym   = $this->gym();
+        abort_if(!$gym, 403);
+        $staff = GymStaff::where('gym_id', $gym->id)->with('user')->get();
+        return view('gym-portal.staff.index', compact('gym', 'staff'));
+    }
+
+    public function inviteStaff()
+    {
+        $gym = $this->gym();
+        abort_if(!$gym, 403);
+        return view('gym-portal.staff.index', ['gym' => $gym, 'staff' => GymStaff::where('gym_id', $gym->id)->with('user')->get(), 'showForm' => true]);
+    }
+
+    public function storeInvite(Request $request)
+    {
+        $gym = $this->gym();
+        abort_if(!$gym, 403);
+
+        $request->validate([
+            'email' => 'required|email',
+            'role'  => 'required|in:cashier,receptionist,trainer,manager',
+        ]);
+
+        $tempPassword = null;
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            $tempPassword = Str::random(10);
+            $user = User::create([
+                'full_name' => explode('@', $request->email)[0],
+                'email'     => $request->email,
+                'password'  => Hash::make($tempPassword),
+                'role'      => 'member',
+                'is_active' => true,
+            ]);
+        }
+
+        $staffRecord = GymStaff::updateOrCreate(
+            ['user_id' => $user->id, 'gym_id' => $gym->id],
+            ['role' => $request->role, 'is_active' => true, 'invited_by' => auth()->id(), 'joined_at' => now()]
+        );
+
+        if ($staffRecord->trashed()) {
+            $staffRecord->restore();
+        }
+
+        Mail::to($user->email)->send(new StaffInviteMail($staffRecord, $tempPassword));
+
+        return back()->with('success', "{$user->email} added as {$request->role}.");
+    }
+
+    public function updateRole(Request $request, GymStaff $staff)
+    {
+        abort_if($staff->gym_id !== $this->gym()?->id, 403);
+
+        $request->validate(['role' => 'required|in:cashier,receptionist,trainer,manager']);
+        $staff->update(['role' => $request->role]);
+
+        return back()->with('success', 'Role updated.');
+    }
+
+    public function removeStaff(GymStaff $staff)
+    {
+        abort_if($staff->gym_id !== $this->gym()?->id, 403);
+        $staff->delete();
+        return back()->with('success', 'Staff member removed.');
     }
 }

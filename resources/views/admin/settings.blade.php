@@ -95,6 +95,22 @@
         </form>
     </div>
 
+    {{-- Check-in Radius Settings --}}
+    <div class="mt-8 bg-white rounded-xl border border-gray-200 p-6">
+        <h3 class="font-semibold mb-1">Check-in Radius Settings</h3>
+        <p class="text-sm text-gray-500 mb-6">Default radius used when a gym doesn't have a custom setting.</p>
+        <form method="POST" action="{{ route('admin.settings.checkin-radius') }}">
+            @csrf
+            <div class="flex items-center gap-3 mb-4">
+                <label class="text-sm font-medium text-gray-700">Default Radius</label>
+                <input type="number" name="checkin_radius_default" value="{{ old('checkin_radius_default', $checkinRadiusDefault) }}" min="10" max="5000"
+                       class="border border-gray-200 rounded-lg px-4 py-2 w-28 font-mono">
+                <span class="text-gray-500 text-sm">meters</span>
+            </div>
+            <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">Save</button>
+        </form>
+    </div>
+
     {{-- Info Box --}}
     <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
         <p class="text-sm text-blue-700">

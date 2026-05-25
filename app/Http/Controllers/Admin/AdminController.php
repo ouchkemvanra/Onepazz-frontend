@@ -188,9 +188,10 @@ class AdminController extends Controller
         $checkinsSilver       = PlatformConfig::get('checkins_per_unit_silver', 20);
         $checkinsBronze       = PlatformConfig::get('checkins_per_unit_bronze', 25);
         $revenueShareDefault  = PlatformConfig::get('revenue_share_pct_default', 30);
+        $checkinRadiusDefault = PlatformConfig::get('checkin_radius_default', 50);
 
         return view('admin.settings', compact(
-            'khrRate', 'checkinsGold', 'checkinsSilver', 'checkinsBronze', 'revenueShareDefault'
+            'khrRate', 'checkinsGold', 'checkinsSilver', 'checkinsBronze', 'revenueShareDefault', 'checkinRadiusDefault'
         ));
     }
 
@@ -204,6 +205,13 @@ class AdminController extends Controller
 
         return redirect()->route('admin.settings')
             ->with('success', 'Exchange rate updated successfully');
+    }
+
+    public function updateCheckinRadius(Request $request)
+    {
+        $request->validate(['checkin_radius_default' => 'required|integer|min:10|max:5000']);
+        PlatformConfig::set('checkin_radius_default', $request->checkin_radius_default);
+        return redirect()->route('admin.settings')->with('success', 'Default check-in radius updated.');
     }
 
     public function updateRevenueConfig(Request $request)
@@ -239,18 +247,25 @@ class AdminController extends Controller
     public function updateGym(Request $request, Gym $gym)
     {
         $request->validate([
-            'monthly_fee_usd'       => 'required|numeric|min:0',
-            'revenue_share_pct'     => 'required|numeric|min:0|max:100',
-            'daily_capacity_limit'  => 'nullable|integer|min:1',
-            'tier'                  => 'required|in:bronze,silver,gold',
+            'monthly_fee_usd'        => 'required|numeric|min:0',
+            'revenue_share_pct'      => 'required|numeric|min:0|max:100',
+            'daily_capacity_limit'   => 'nullable|integer|min:1',
+            'tier'                   => 'required|in:bronze,silver,gold',
+            'checkin_radius_meters'  => 'required|integer|min:10|max:5000',
         ]);
 
         $gym->update($request->only([
-            'monthly_fee_usd', 'revenue_share_pct', 'daily_capacity_limit', 'tier',
+            'monthly_fee_usd', 'revenue_share_pct', 'daily_capacity_limit', 'tier', 'checkin_radius_meters',
         ]));
 
         return redirect()->route('admin.gyms.index')
             ->with('success', "Gym settings updated for {$gym->name}.");
+    }
+
+    public function regenerateGymQr(Gym $gym)
+    {
+        $gym->generateQrToken();
+        return back()->with('success', 'QR token regenerated for ' . $gym->name . '.');
     }
 
     public function suspendGym(Gym $gym)

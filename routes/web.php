@@ -78,6 +78,22 @@ Route::middleware(['auth', 'role:gym_admin'])->prefix('gym-portal')->name('gym-p
     Route::post('/classes/{class}/toggle',   [GymPortalController::class, 'toggleClass'])->name('classes.toggle');
     Route::get('/bookings',                  [GymPortalController::class, 'bookings'])->name('bookings');
     Route::get('/reviews',                   [GymPortalController::class, 'reviews'])->name('reviews');
+
+    // QR Code
+    Route::get('/qr-code',                   [GymPortalController::class, 'qrCode'])->name('qr-code');
+    Route::post('/qr-code/regenerate',       [GymPortalController::class, 'regenerateQr'])->name('qr-code.regenerate');
+
+    // Staff Management (gym_admin only)
+    Route::get('/staff',                     [GymPortalController::class, 'staff'])->name('staff.index');
+    Route::get('/staff/invite',              [GymPortalController::class, 'inviteStaff'])->name('staff.invite');
+    Route::post('/staff/invite',             [GymPortalController::class, 'storeInvite'])->name('staff.store');
+    Route::patch('/staff/{staff}/role',      [GymPortalController::class, 'updateRole'])->name('staff.role');
+    Route::delete('/staff/{staff}',          [GymPortalController::class, 'removeStaff'])->name('staff.remove');
+});
+
+// Checkin Screen (gym_admin OR gym staff)
+Route::middleware(['auth', 'gym.staff'])->group(function () {
+    Route::get('/gym-portal/checkin-screen', [GymPortalController::class, 'checkinScreen'])->name('gym-portal.checkin-screen');
 });
 
 // Admin Routes (platform_admin only)
@@ -99,7 +115,8 @@ Route::middleware(['auth', 'platform_admin'])->prefix('admin')->name('admin.')->
     // Settings
     Route::get('/settings',                  [AdminController::class, 'settings'])->name('settings');
     Route::post('/settings',                 [AdminController::class, 'updateSettings'])->name('settings.update');
-    Route::post('/settings/revenue-config',  [AdminController::class, 'updateRevenueConfig'])->name('settings.revenue-config');
+    Route::post('/settings/revenue-config',   [AdminController::class, 'updateRevenueConfig'])->name('settings.revenue-config');
+    Route::post('/settings/checkin-radius',   [AdminController::class, 'updateCheckinRadius'])->name('settings.checkin-radius');
 
     // Gym Management
     Route::get('/gyms',                      [AdminController::class, 'gyms'])->name('gyms.index');
@@ -107,6 +124,7 @@ Route::middleware(['auth', 'platform_admin'])->prefix('admin')->name('admin.')->
     Route::patch('/gyms/{gym}',              [AdminController::class, 'updateGym'])->name('gyms.update');
     Route::post('/gyms/{gym}/suspend',       [AdminController::class, 'suspendGym'])->name('gyms.suspend');
     Route::post('/gyms/{gym}/activate',      [AdminController::class, 'activateGym'])->name('gyms.activate');
+    Route::post('/gyms/{gym}/regenerate-qr', [AdminController::class, 'regenerateGymQr'])->name('gyms.regenerate-qr');
 
     // Payouts
     Route::get('/payouts',                   [AdminController::class, 'payouts'])->name('payouts.index');

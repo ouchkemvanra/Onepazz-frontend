@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Gym;
+use App\Models\GymStaff;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class GymAdminSeeder extends Seeder
             $gym->update(['admin_user_id' => $user->id]);
             $this->command->info("Linked {$user->email} to existing gym: {$gym->name}");
         } else {
-            Gym::create([
+            $gym = Gym::create([
                 'name'          => 'Fit Republic BKK',
                 'name_kh'       => 'ហ្វីត រីប៊ូប្លិក BKK',
                 'slug'          => 'fit-republic-bkk',
@@ -41,5 +42,31 @@ class GymAdminSeeder extends Seeder
             ]);
             $this->command->info("Created Fit Republic BKK and linked to {$user->email}");
         }
+
+        // Generate QR token
+        $gym->generateQrToken();
+        $this->command->info("QR token generated: {$gym->qr_code}");
+
+        // Cashier staff
+        $cashier = User::updateOrCreate(
+            ['email' => 'cashier@fitrepublic.com.kh'],
+            ['full_name' => 'Fit Republic Cashier', 'password' => Hash::make('password123'), 'role' => 'member', 'is_active' => true]
+        );
+        GymStaff::updateOrCreate(
+            ['user_id' => $cashier->id, 'gym_id' => $gym->id],
+            ['role' => 'cashier', 'is_active' => true, 'invited_by' => $user->id, 'joined_at' => now()]
+        );
+        $this->command->info("Cashier created: cashier@fitrepublic.com.kh / password123");
+
+        // Manager staff
+        $manager = User::updateOrCreate(
+            ['email' => 'manager@fitrepublic.com.kh'],
+            ['full_name' => 'Fit Republic Manager', 'password' => Hash::make('password123'), 'role' => 'member', 'is_active' => true]
+        );
+        GymStaff::updateOrCreate(
+            ['user_id' => $manager->id, 'gym_id' => $gym->id],
+            ['role' => 'manager', 'is_active' => true, 'invited_by' => $user->id, 'joined_at' => now()]
+        );
+        $this->command->info("Manager created: manager@fitrepublic.com.kh / password123");
     }
 }

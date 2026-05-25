@@ -61,6 +61,23 @@
                     <label class="block text-sm font-medium text-gray-700 mb-1">Daily Capacity Limit</label>
                     <input type="number" min="1" name="daily_capacity_limit" value="{{ old('daily_capacity_limit', $gym->daily_capacity_limit) }}" placeholder="Blank = unlimited" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Check-in Radius (meters)</label>
+                    <input type="number" min="10" max="5000" name="checkin_radius_meters" value="{{ old('checkin_radius_meters', $gym->checkin_radius_meters ?? 50) }}" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                    <p class="text-xs text-gray-400 mt-1">Members must be within this distance to QR check in.</p>
+                </div>
+            </div>
+
+            {{-- QR Token --}}
+            <div class="border-t border-gray-100 pt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">QR Token</label>
+                <div class="flex items-center gap-3">
+                    <input type="text" readonly value="{{ $gym->qr_code ?? 'Not generated' }}" class="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono text-gray-500">
+                    <form method="POST" action="{{ route('admin.gyms.regenerate-qr', $gym) }}">
+                        @csrf
+                        <button type="submit" class="border border-gray-200 px-3 py-2 rounded-lg text-sm hover:bg-gray-50 transition whitespace-nowrap">Regenerate</button>
+                    </form>
+                </div>
             </div>
 
             <div class="flex gap-3 pt-2">

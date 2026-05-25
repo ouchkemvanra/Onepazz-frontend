@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Gym extends Model
 {
@@ -18,6 +19,7 @@ class Gym extends Model
         'admin_user_id', 'status', 'partner_since',
         'average_rating', 'review_count',
         'monthly_fee_usd', 'revenue_share_pct', 'daily_capacity_limit',
+        'checkin_radius_meters', 'qr_code',
     ];
 
     protected $casts = [
@@ -46,6 +48,11 @@ class Gym extends Model
     public function reviews()
     {
         return $this->hasMany(GymReview::class);
+    }
+
+    public function staff()
+    {
+        return $this->hasMany(GymStaff::class);
     }
 
     public function savedByUsers()
@@ -110,5 +117,29 @@ class Gym extends Model
             return false;
         }
         return $this->dailyCheckinCount() >= $this->daily_capacity_limit;
+    }
+
+    public function generateQrToken(): string
+    {
+        $token = 'GYM-' . $this->id . '-' . Str::random(16);
+        $this->update(['qr_code' => $token]);
+        return $token;
+    }
+
+    public function isWithinRadius(float $lat, float $lng): bool
+    {
+        if (!$this->latitude || !$this->longitude) {
+            return true; // no location set — skip geo check
+        }
+
+        $earthRadius = 6371000;
+        $latDelta    = deg2rad($lat - $this->latitude);
+        $lngDelta    = deg2rad($lng - $this->longitude);
+        $a           = sin($latDelta / 2) * sin($latDelta / 2)
+                     + cos(deg2rad($this->latitude)) * cos(deg2rad($lat))
+                     * sin($lngDelta / 2) * sin($lngDelta / 2);
+        $distance    = $earthRadius * 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+        return $distance <= ($this->checkin_radius_meters ?? 50);
     }
 }

@@ -35,4 +35,10 @@ class User extends Authenticatable
     public function savedGyms()        { return $this->belongsToMany(Gym::class, 'saved_gyms', 'user_id', 'gym_id')->withPivot('saved_at'); }
     public function adminForEmployer() { return $this->hasOne(Employer::class, 'admin_user_id'); }
     public function adminForGym()      { return $this->hasOne(Gym::class, 'admin_user_id'); }
+    public function gymStaff()         { return $this->hasMany(GymStaff::class); }
+
+    public function gymStaffRoleAt(int $gymId): ?string
+    {
+        return $this->gymStaff()->where('gym_id', $gymId)->where('is_active', true)->value('role');
+    }
 }
