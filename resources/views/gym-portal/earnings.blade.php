@@ -22,7 +22,7 @@
     <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
         <p class="text-sm text-blue-700">
             Payouts are processed on the <strong>5th of each month</strong> for the previous month.
-            Your KhmerFit cut is <strong>{{ auth()->user()->adminForGym->effectiveRevenueSharePct() }}%</strong>.
+            Your KhmerFit cut is <strong>{{ $gym->effectiveRevenueSharePct() }}%</strong>.
         </p>
     </div>
 

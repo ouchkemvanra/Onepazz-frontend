@@ -73,6 +73,7 @@ Route::middleware(['auth', 'gym.staff'])->prefix('gym-portal')->name('gym-portal
     Route::get('/bookings',      [GymPortalController::class, 'bookings'])->name('bookings');
     Route::get('/reviews',       [GymPortalController::class, 'reviews'])->name('reviews');
     Route::get('/checkin-screen',[GymPortalController::class, 'checkinScreen'])->name('checkin-screen');
+    Route::get('/qr-code',       [GymPortalController::class, 'qrCode'])->name('qr-code');
 });
 
 // Gym Partner Portal — management actions (gym_admin only)
@@ -83,7 +84,6 @@ Route::middleware(['auth', 'role:gym_admin'])->prefix('gym-portal')->name('gym-p
     Route::post('/classes',                  [GymPortalController::class, 'storeClass'])->name('classes.store');
     Route::patch('/classes/{class}',         [GymPortalController::class, 'updateClass'])->name('classes.update');
     Route::post('/classes/{class}/toggle',   [GymPortalController::class, 'toggleClass'])->name('classes.toggle');
-    Route::get('/qr-code',                   [GymPortalController::class, 'qrCode'])->name('qr-code');
     Route::post('/qr-code/regenerate',       [GymPortalController::class, 'regenerateQr'])->name('qr-code.regenerate');
     Route::get('/staff',                     [GymPortalController::class, 'staff'])->name('staff.index');
     Route::get('/staff/invite',              [GymPortalController::class, 'inviteStaff'])->name('staff.invite');
