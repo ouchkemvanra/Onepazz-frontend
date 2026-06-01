@@ -11,6 +11,22 @@
             <a href="{{ route('admin.dashboard') }}" class="text-sm px-3 py-2 rounded-lg hover:bg-gray-50 {{ $navActive('admin.dashboard') }}">Dashboard</a>
             <a href="{{ route('admin.payments.index') }}" class="text-sm px-3 py-2 rounded-lg hover:bg-gray-50 {{ $navActive('admin.payments.*') }}">Payments</a>
 
+            {{-- Employers dropdown --}}
+            <div class="relative" x-data="{ open: false }" @click.outside="open = false">
+                <button @click="open = !open"
+                    class="text-sm px-3 py-2 rounded-lg hover:bg-gray-50 flex items-center gap-1
+                    {{ request()->routeIs('admin.employers.*') ? 'text-teal-600 font-semibold' : 'text-gray-500' }}">
+                    Employers
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="open" x-cloak class="absolute top-full left-0 mt-1 w-52 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50">
+                    <a href="{{ route('admin.employers.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">All Employers</a>
+                    <a href="{{ route('admin.employers.create') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Add New Employer</a>
+                    <a href="{{ route('admin.employers.index', ['tab'=>'pending']) }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Pending Registrations</a>
+                    <a href="{{ route('admin.employers.index', ['tab'=>'invitations']) }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Invitations</a>
+                </div>
+            </div>
+
             {{-- Gyms dropdown --}}
             <div class="relative" x-data="{ open: false }" @click.outside="open = false">
                 <button @click="open = !open"

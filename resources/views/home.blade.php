@@ -19,6 +19,7 @@
         <div class="flex items-center gap-4">
     <a href="#plans" class="text-sm text-gray-500 hover:text-gray-800">Plans</a>
     <a href="{{ route('gyms.index') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('nav.gyms') }}</a>
+    <a href="{{ route('employer-register.create') }}" class="text-sm text-gray-500 hover:text-gray-800">Register your company</a>
     <a href="{{ route('gym-apply.create') }}" class="text-sm text-gray-500 hover:text-gray-800">Partner with us</a>
     @auth
         <a href="{{ route('dashboard.index') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('nav.dashboard') }}</a>
@@ -66,7 +67,7 @@
         Connect your team with Cambodia's best gyms and fitness studios. One platform, hundreds of wellness options.
     </p>
     <div class="flex gap-3 justify-center flex-wrap">
-        <a href="#plans" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold px-6 py-3 rounded-xl transition">Start for Employers</a>
+        <a href="{{ route('employer-register.create') }}" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold px-6 py-3 rounded-xl transition">Register your company →</a>
         <a href="{{ route('gyms.index') }}" class="bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-xl border border-white/20 transition">{{ __('home.browse_gyms') }}</a>
     </div>
 

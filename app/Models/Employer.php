@@ -11,9 +11,9 @@ class Employer extends Model
 
     protected $fillable = [
         'company_name', 'company_name_kh', 'registration_number', 'industry',
-        'logo_url', 'website', 'address_line1', 'address_line2',
+        'company_size', 'logo_url', 'website', 'address_line1', 'address_line2',
         'city', 'province', 'contact_name', 'contact_email', 'contact_phone',
-        'admin_user_id', 'status', 'notes',
+        'admin_user_id', 'status', 'notes', 'reference_code', 'source',
     ];
 
     public function adminUser()

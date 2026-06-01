@@ -79,6 +79,78 @@
         </div>
     </div>
 
+    {{-- Onboarding Banner (shown until first employee is added) --}}
+    @if($activeEmployees === 0)
+    <div class="bg-teal-50 border border-teal-200 rounded-xl p-6 mb-6" x-data="{ open: true }" x-show="open">
+        <div class="flex items-start justify-between mb-4">
+            <div>
+                <p class="font-semibold text-teal-800 text-lg">Welcome to KhmerFit! Let's get you set up.</p>
+                <p class="text-sm text-teal-600 mt-0.5">Complete these steps to activate your corporate wellness programme.</p>
+            </div>
+            <button @click="open = false" class="text-teal-400 hover:text-teal-600 ml-4 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {{-- Step 1: Account Active --}}
+            <div class="bg-white rounded-lg p-4 border border-teal-100 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5
+                    {{ $employer->status === 'active' ? 'bg-teal-600' : 'bg-gray-200' }}">
+                    @if($employer->status === 'active')
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    @else
+                    <span class="text-xs text-gray-500 font-bold">1</span>
+                    @endif
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Registration approved</p>
+                    <p class="text-xs text-gray-400 mt-0.5">
+                        @if($employer->status === 'active') Done! Your account is active.
+                        @else Pending admin review (within 24h).
+                        @endif
+                    </p>
+                </div>
+            </div>
+            {{-- Step 2: Add Employees --}}
+            <div class="bg-white rounded-lg p-4 border border-teal-100 flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="text-xs text-gray-500 font-bold">2</span>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Add your first employee</p>
+                    <p class="text-xs text-gray-400 mt-0.5">Invite staff members to start using KhmerFit.</p>
+                    @if($employer->status === 'active')
+                    <a href="{{ route('dashboard.employees.create') }}" class="inline-block mt-2 text-xs bg-teal-600 text-white px-3 py-1 rounded-lg hover:bg-teal-700">Add Employees →</a>
+                    @endif
+                </div>
+            </div>
+            {{-- Step 3: Pay Invoice --}}
+            <div class="bg-white rounded-lg p-4 border border-teal-100 flex items-start gap-3">
+                @php $pendingInvoice = $employer->invoices()->where('status','unpaid')->latest()->first(); @endphp
+                <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5
+                    {{ !$pendingInvoice ? 'bg-teal-600' : 'bg-gray-200' }}">
+                    @if(!$pendingInvoice)
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    @else
+                    <span class="text-xs text-gray-500 font-bold">3</span>
+                    @endif
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Pay your first invoice</p>
+                    <p class="text-xs text-gray-400 mt-0.5">
+                        @if($pendingInvoice) Invoice {{ $pendingInvoice->invoice_number }} is awaiting payment.
+                        @else No outstanding invoices.
+                        @endif
+                    </p>
+                    @if($pendingInvoice)
+                    <a href="{{ route('dashboard.billing.pay', $pendingInvoice) }}" class="inline-block mt-2 text-xs bg-orange-500 text-white px-3 py-1 rounded-lg hover:bg-orange-600">Pay Now →</a>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
     {{-- KPI Metrics --}}
     <div class="grid grid-cols-4 gap-4 mb-6">
         <div class="bg-white rounded-xl border border-gray-200 p-5">

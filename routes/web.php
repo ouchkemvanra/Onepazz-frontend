@@ -12,6 +12,8 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\EmployeeController;
 use App\Http\Controllers\Dashboard\ReportController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EmployerController as AdminEmployerController;
+use App\Http\Controllers\EmployerRegistrationController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
@@ -21,6 +23,14 @@ Route::post('/language/{locale}', [LanguageController::class, 'switch'])->name('
 Route::post('/currency/{currency}', [CurrencyController::class, 'switch'])->name('currency.switch');
 Route::get('/gyms',       [GymController::class, 'index'])->name('gyms.index');
 Route::get('/gyms/{gym}', [GymController::class, 'show'])->name('gyms.show');
+
+// Employer Self-Service Registration (public)
+Route::get('/register/employer',                           [EmployerRegistrationController::class, 'create'])->name('employer-register.create');
+Route::post('/register/employer',                          [EmployerRegistrationController::class, 'store'])->name('employer-register.store');
+Route::get('/register/employer/thank-you',                 [EmployerRegistrationController::class, 'thankYou'])->name('employer-register.thank-you');
+Route::get('/register/employer/accept/{token}',            [EmployerRegistrationController::class, 'acceptInvite'])->name('employer-register.accept');
+Route::post('/register/employer/accept/{token}',           [EmployerRegistrationController::class, 'submitAccepted'])->name('employer-register.submit');
+Route::get('/register/employer/invite-expired',            fn() => view('employer-register.invite-expired'))->name('employer-register.invite-expired');
 
 // Partner Self-Service Application (public)
 Route::get('/join',               [GymApplicationController::class, 'create'])->name('gym-apply.create');
@@ -142,4 +152,19 @@ Route::middleware(['auth', 'platform_admin'])->prefix('admin')->name('admin.')->
     Route::get('/payouts',                   [AdminController::class, 'payouts'])->name('payouts.index');
     Route::post('/payouts/confirm',          [AdminController::class, 'confirmPayouts'])->name('payouts.confirm');
     Route::get('/payouts/export-csv',        [AdminController::class, 'exportPayoutsCsv'])->name('payouts.csv');
+
+    // Employer Management
+    Route::get('/employers',                              [AdminEmployerController::class, 'index'])->name('employers.index');
+    Route::get('/employers/create',                       [AdminEmployerController::class, 'create'])->name('employers.create');
+    Route::post('/employers',                             [AdminEmployerController::class, 'store'])->name('employers.store');
+    Route::get('/employers/invite',                       [AdminEmployerController::class, 'invite'])->name('employers.invite');
+    Route::post('/employers/invite',                      [AdminEmployerController::class, 'sendInvite'])->name('employers.invite.send');
+    Route::post('/employers/invitations/{invitation}/resend', [AdminEmployerController::class, 'resendInvite'])->name('employers.invitations.resend');
+    Route::delete('/employers/invitations/{invitation}',  [AdminEmployerController::class, 'cancelInvite'])->name('employers.invitations.cancel');
+    Route::get('/employers/{employer}/edit',              [AdminEmployerController::class, 'edit'])->name('employers.edit');
+    Route::put('/employers/{employer}',                   [AdminEmployerController::class, 'update'])->name('employers.update');
+    Route::patch('/employers/{employer}/suspend',         [AdminEmployerController::class, 'suspend'])->name('employers.suspend');
+    Route::patch('/employers/{employer}/activate',        [AdminEmployerController::class, 'activate'])->name('employers.activate');
+    Route::post('/employers/{employer}/approve',          [AdminEmployerController::class, 'approvePending'])->name('employers.approve');
+    Route::post('/employers/{employer}/reject',           [AdminEmployerController::class, 'rejectPending'])->name('employers.reject');
 });
