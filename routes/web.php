@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ClassBookingController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\GymPortalController;
+use App\Http\Controllers\GymApplicationController;
 use App\Http\Controllers\Dashboard\BillingController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\EmployeeController;
@@ -20,6 +21,13 @@ Route::post('/language/{locale}', [LanguageController::class, 'switch'])->name('
 Route::post('/currency/{currency}', [CurrencyController::class, 'switch'])->name('currency.switch');
 Route::get('/gyms',       [GymController::class, 'index'])->name('gyms.index');
 Route::get('/gyms/{gym}', [GymController::class, 'show'])->name('gyms.show');
+
+// Partner Self-Service Application (public)
+Route::get('/join',               [GymApplicationController::class, 'create'])->name('gym-apply.create');
+Route::post('/join',              [GymApplicationController::class, 'store'])->name('gym-apply.store');
+Route::get('/join/thank-you',     [GymApplicationController::class, 'thankYou'])->name('gym-apply.thank-you');
+Route::get('/gym-apply/accept/{token}',  [GymApplicationController::class, 'acceptInvite'])->name('gym-apply.accept');
+Route::post('/gym-apply/accept/{token}', [GymApplicationController::class, 'submitAccepted'])->name('gym-apply.submit');
 
 // User Profile (protected by auth)
 Route::middleware('auth')->get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -115,12 +123,19 @@ Route::middleware(['auth', 'platform_admin'])->prefix('admin')->name('admin.')->
     Route::post('/settings/checkin-radius',   [AdminController::class, 'updateCheckinRadius'])->name('settings.checkin-radius');
 
     // Gym Management
-    Route::get('/gyms',                      [AdminController::class, 'gyms'])->name('gyms.index');
-    Route::get('/gyms/{gym}/edit',           [AdminController::class, 'editGym'])->name('gyms.edit');
-    Route::patch('/gyms/{gym}',              [AdminController::class, 'updateGym'])->name('gyms.update');
-    Route::post('/gyms/{gym}/suspend',       [AdminController::class, 'suspendGym'])->name('gyms.suspend');
-    Route::post('/gyms/{gym}/activate',      [AdminController::class, 'activateGym'])->name('gyms.activate');
-    Route::post('/gyms/{gym}/regenerate-qr', [AdminController::class, 'regenerateGymQr'])->name('gyms.regenerate-qr');
+    Route::get('/gyms',                        [AdminController::class, 'gyms'])->name('gyms.index');
+    Route::get('/gyms/create',                 [AdminController::class, 'createGym'])->name('gyms.create');
+    Route::post('/gyms',                       [AdminController::class, 'storeGym'])->name('gyms.store');
+    Route::get('/gyms/invite',                 [AdminController::class, 'invite'])->name('gyms.invite');
+    Route::post('/gyms/invite',                [AdminController::class, 'sendInvite'])->name('gyms.invite.send');
+    Route::get('/gyms/invitations',            [AdminController::class, 'invitations'])->name('gyms.invitations');
+    Route::post('/gyms/invitations/{application}/resend', [AdminController::class, 'resendInvite'])->name('gyms.invitations.resend');
+    Route::delete('/gyms/invitations/{application}',      [AdminController::class, 'cancelInvite'])->name('gyms.invitations.cancel');
+    Route::get('/gyms/{gym}/edit',             [AdminController::class, 'editGym'])->name('gyms.edit');
+    Route::patch('/gyms/{gym}',                [AdminController::class, 'updateGym'])->name('gyms.update');
+    Route::post('/gyms/{gym}/suspend',         [AdminController::class, 'suspendGym'])->name('gyms.suspend');
+    Route::post('/gyms/{gym}/activate',        [AdminController::class, 'activateGym'])->name('gyms.activate');
+    Route::post('/gyms/{gym}/regenerate-qr',   [AdminController::class, 'regenerateGymQr'])->name('gyms.regenerate-qr');
 
     // Payouts
     Route::get('/payouts',                   [AdminController::class, 'payouts'])->name('payouts.index');

@@ -19,6 +19,7 @@
         <div class="flex items-center gap-4">
     <a href="#plans" class="text-sm text-gray-500 hover:text-gray-800">Plans</a>
     <a href="{{ route('gyms.index') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('nav.gyms') }}</a>
+    <a href="{{ route('gym-apply.create') }}" class="text-sm text-gray-500 hover:text-gray-800">Partner with us</a>
     @auth
         <a href="{{ route('dashboard.index') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('nav.dashboard') }}</a>
         <form method="POST" action="{{ route('logout') }}" class="inline">

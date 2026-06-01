@@ -6,33 +6,28 @@
     <title>Gym Management — Admin — KhmerFit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>body{font-family:'DM Sans',sans-serif;}</style>
 </head>
 <body class="bg-gray-50">
 
-<nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
-            <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit Admin
-        </a>
-        <div class="flex items-center gap-6">
-            <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-500 hover:text-gray-800">Dashboard</a>
-            <a href="{{ route('admin.payments.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payments</a>
-            <a href="{{ route('admin.gym-applications.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Applications</a>
-            <a href="{{ route('admin.gyms.index') }}" class="text-sm font-semibold text-teal-600">Gyms</a>
-            <a href="{{ route('admin.payouts.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Payouts</a>
-            <a href="{{ route('admin.settings') }}" class="text-sm text-gray-500 hover:text-gray-800">Settings</a>
-            <form method="POST" action="{{ route('logout') }}" class="inline">@csrf<button class="text-sm text-gray-500 hover:text-gray-800">Logout</button></form>
-        </div>
-    </div>
-</nav>
+@include('admin._nav')
 
 <div class="max-w-7xl mx-auto px-6 py-8">
 
-    <div class="mb-8">
-        <h1 class="text-2xl font-bold text-gray-800">Gym Management</h1>
-        <p class="text-sm text-gray-400 mt-1">{{ $gyms->total() }} partners</p>
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Gym Management</h1>
+            <p class="text-sm text-gray-400 mt-1">{{ $gyms->total() }} partners</p>
+        </div>
+        <div class="flex gap-3">
+            <a href="{{ route('admin.gyms.invite') }}" class="border border-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition text-sm">
+                Send Invitation
+            </a>
+            <a href="{{ route('admin.gyms.create') }}" class="bg-teal-600 text-white px-5 py-2 rounded-lg hover:bg-teal-700 transition text-sm font-medium">
+                + Add New Gym
+            </a>
+        </div>
     </div>
 
     @if(session('success'))

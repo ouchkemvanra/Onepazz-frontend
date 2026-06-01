@@ -172,20 +172,48 @@
 
                 {{-- Approve Modal --}}
                 <div x-show="approveModal" x-cloak class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" @click.self="approveModal = false">
-                    <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
-                        <h3 class="font-semibold text-lg mb-3">Approve Gym Application</h3>
-                        <p class="text-sm text-gray-600 mb-4">This will create a new gym and admin user account.</p>
+                    <div class="bg-white rounded-xl p-6 max-w-lg w-full mx-4 max-h-screen overflow-y-auto" x-data="{ createAccount: true }">
+                        <h3 class="font-semibold text-lg mb-1">Approve Gym Application</h3>
+                        <p class="text-sm text-gray-500 mb-4">This will create the gym in the system.</p>
                         <form method="POST" action="{{ route('admin.gym-applications.approve', $application) }}">
                             @csrf
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Admin User Email *</label>
-                            <input type="email" name="admin_user_email" required value="{{ $application->contact_email }}" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm mb-4" placeholder="admin@example.com">
+                            <div class="grid grid-cols-2 gap-3 mb-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Tier <span class="text-red-500">*</span></label>
+                                    <select name="tier" required class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                                        @foreach(['bronze','silver','gold'] as $t)
+                                        <option value="{{ $t }}">{{ ucfirst($t) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Partner Since <span class="text-red-500">*</span></label>
+                                    <input type="date" name="partner_since" value="{{ today()->toDateString() }}" required
+                                        class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                                </div>
+                            </div>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Notes (optional)</label>
-                            <textarea name="notes" rows="3" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm mb-4" placeholder="Add any notes..."></textarea>
+                            <label class="flex items-center gap-2 mb-3 cursor-pointer">
+                                <input type="checkbox" name="create_gym_admin" value="1" x-model="createAccount" checked
+                                    class="rounded border-gray-300 text-teal-600">
+                                <span class="text-sm text-gray-700">Create gym admin account</span>
+                            </label>
+
+                            <div x-show="createAccount" class="mb-3">
+                                <label class="block text-xs font-medium text-gray-700 mb-1">Admin Email</label>
+                                <input type="email" name="admin_user_email" value="{{ $application->contact_email }}"
+                                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                                <p class="text-xs text-gray-400 mt-1">A temporary password will be generated and emailed.</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-xs font-medium text-gray-700 mb-1">Notes (optional)</label>
+                                <textarea name="notes" rows="2" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm" placeholder="Internal notes..."></textarea>
+                            </div>
 
                             <div class="flex gap-2">
-                                <button type="button" @click="approveModal = false" class="flex-1 border border-gray-200 px-4 py-2 rounded-lg hover:bg-gray-50">Cancel</button>
-                                <button type="submit" class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Approve</button>
+                                <button type="button" @click="approveModal = false" class="flex-1 border border-gray-200 px-4 py-2 rounded-lg hover:bg-gray-50 text-sm">Cancel</button>
+                                <button type="submit" class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm">Approve & Create Gym</button>
                             </div>
                         </form>
                     </div>
