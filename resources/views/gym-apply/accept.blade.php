@@ -110,7 +110,8 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">City <span class="text-red-500">*</span></label>
                     <select name="city" required class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
-                        @foreach(['Phnom Penh','Siem Reap','Sihanoukville','Battambang','Other'] as $city)
+                        <option value="">— Select —</option>
+                        @foreach(['Phnom Penh','Banteay Meanchey','Battambang','Kampong Cham','Kampong Chhnang','Kampong Speu','Kampong Thom','Kampot','Kandal','Kep','Koh Kong','Kratie','Mondulkiri','Oddar Meanchey','Pailin','Preah Sihanouk','Preah Vihear','Prey Veng','Pursat','Ratanakiri','Siem Reap','Stung Treng','Svay Rieng','Takeo','Tbong Khmum'] as $city)
                         <option value="{{ $city }}" {{ old('city', $application->city) === $city ? 'selected' : '' }}>{{ $city }}</option>
                         @endforeach
                     </select>
