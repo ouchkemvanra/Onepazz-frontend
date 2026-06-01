@@ -164,7 +164,7 @@
                 <input type="checkbox" name="agree_terms" value="1" {{ old('agree_terms') ? 'checked' : '' }}
                     class="mt-0.5 rounded border-gray-300 text-teal-600">
                 <span class="text-sm text-gray-700">
-                    I agree to KhmerFit's <a href="#" class="text-teal-600 hover:underline">Partner Terms & Conditions</a> and understand that my application will be reviewed within 3–5 business days. <span class="text-red-500">*</span>
+                    I agree to KhmerFit's <a href="{{ route('gym-apply.terms') }}" target="_blank" class="text-teal-600 hover:underline">Partner Terms & Conditions</a> and understand that my application will be reviewed within 3–5 business days. <span class="text-red-500">*</span>
                 </span>
             </label>
         </div>

@@ -26,6 +26,7 @@ Route::get('/gyms/{gym}', [GymController::class, 'show'])->name('gyms.show');
 Route::get('/join',               [GymApplicationController::class, 'create'])->name('gym-apply.create');
 Route::post('/join',              [GymApplicationController::class, 'store'])->name('gym-apply.store');
 Route::get('/join/thank-you',     [GymApplicationController::class, 'thankYou'])->name('gym-apply.thank-you');
+Route::get('/join/terms',         [GymApplicationController::class, 'terms'])->name('gym-apply.terms');
 Route::get('/gym-apply/accept/{token}',  [GymApplicationController::class, 'acceptInvite'])->name('gym-apply.accept');
 Route::post('/gym-apply/accept/{token}', [GymApplicationController::class, 'submitAccepted'])->name('gym-apply.submit');
 

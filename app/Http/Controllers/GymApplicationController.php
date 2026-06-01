@@ -54,6 +54,11 @@ class GymApplicationController extends Controller
         return view('gym-apply.thank-you');
     }
 
+    public function terms()
+    {
+        return view('gym-apply.terms');
+    }
+
     public function acceptInvite(string $token)
     {
         $application = GymApplication::where('invite_token', $token)->firstOrFail();
