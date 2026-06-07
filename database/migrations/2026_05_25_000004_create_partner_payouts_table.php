@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('units', 10, 2)->default(0);
             $table->decimal('value_per_unit', 10, 2)->default(0);
             $table->decimal('payout_usd', 10, 2)->default(0);
-            $table->decimal('khmerfit_cut', 10, 2)->default(0);
+            $table->decimal('onepazz_cut', 10, 2)->default(0);
             $table->decimal('khr_rate', 10, 2)->default(4100);
             $table->decimal('payout_khr', 14, 2)->default(0);
             $table->enum('status', ['estimated', 'confirmed', 'paid'])->default('estimated');

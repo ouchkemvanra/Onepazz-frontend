@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing — KhmerFit</title>
+    <title>Billing — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('dashboard.index') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('nav.dashboard') }}</a>
@@ -80,7 +80,7 @@
         <div class="bg-white/10 rounded-lg p-3 text-xs text-white/60 leading-relaxed">
             ⚠️ Use your invoice number as the transfer reference.<br>
             Confirmation is processed within 1–2 business days.<br>
-            Contact billing@khmerfit.com.kh for queries.
+            Contact billing@onepazz.com.kh for queries.
         </div>
     </div>
 

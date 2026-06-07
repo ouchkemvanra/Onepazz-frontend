@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Check-in — {{ $gym->name }} — KhmerFit</title>
+    <title>QR Check-in — {{ $gym->name }} — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -35,7 +35,7 @@
     {{-- Instructions --}}
     <div class="bg-teal-50 border border-teal-200 rounded-xl p-5 mb-6">
         <h3 class="font-semibold text-teal-800 mb-2">Print Instructions</h3>
-        <p class="text-sm text-teal-700">Post this QR code at your entrance. Members scan it with the KhmerFit app to check in automatically. Members must be within <strong>{{ $gym->checkin_radius_meters ?? 50 }}m</strong> of your gym to check in.</p>
+        <p class="text-sm text-teal-700">Post this QR code at your entrance. Members scan it with the OnePazz app to check in automatically. Members must be within <strong>{{ $gym->checkin_radius_meters ?? 50 }}m</strong> of your gym to check in.</p>
     </div>
 
     {{-- Actions --}}

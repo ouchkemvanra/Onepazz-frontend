@@ -37,7 +37,7 @@ class PlanSeeder extends Seeder
             [
                 'name'                   => 'Enterprise',
                 'name_kh'                => 'សហគ្រាស',
-                'description'            => 'Unlimited access to the entire KhmerFit network.',
+                'description'            => 'Unlimited access to the entire OnePazz network.',
                 'price_usd'              => 99.00,
                 'tier'                   => 'all',
                 'max_employees'          => null,

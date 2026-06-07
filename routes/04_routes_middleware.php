@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// KhmerFit — Routes, Middleware, Service Providers, Helpers
+// OnePazz — Routes, Middleware, Service Providers, Helpers
 // ============================================================
 
 
@@ -254,7 +254,7 @@ class AppServiceProvider extends ServiceProvider
 
 
 // ─────────────────────────────────────────────────────────────
-// config/khmerfit.php — platform-specific config
+// config/onepazz.php — platform-specific config
 // ─────────────────────────────────────────────────────────────
 return [
     // Default KHR rate (overridden by platform_config DB table)

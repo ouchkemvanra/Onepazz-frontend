@@ -18,10 +18,10 @@ return new class extends Migration
 
         DB::table('platform_config')->insert([
             ['key' => 'khr_rate',      'value' => '4100', 'created_at' => now(), 'updated_at' => now()],
-            ['key' => 'support_email', 'value' => 'support@khmerfit.com.kh', 'created_at' => now(), 'updated_at' => now()],
+            ['key' => 'support_email', 'value' => 'support@onepazz.com.kh', 'created_at' => now(), 'updated_at' => now()],
             ['key' => 'bank_name',     'value' => 'ACLEDA Bank', 'created_at' => now(), 'updated_at' => now()],
             ['key' => 'bank_account',  'value' => '1234-5678-9012-3456', 'created_at' => now(), 'updated_at' => now()],
-            ['key' => 'bank_holder',   'value' => 'KhmerFit Co., Ltd', 'created_at' => now(), 'updated_at' => now()],
+            ['key' => 'bank_holder',   'value' => 'OnePazz Co., Ltd', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 

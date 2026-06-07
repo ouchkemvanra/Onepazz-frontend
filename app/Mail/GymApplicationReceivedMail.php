@@ -17,7 +17,7 @@ class GymApplicationReceivedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'We received your KhmerFit application');
+        return new Envelope(subject: 'We received your OnePazz application');
     }
 
     public function content(): Content

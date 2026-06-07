@@ -22,7 +22,7 @@ class EmployerWelcomeMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Welcome to KhmerFit!');
+        return new Envelope(subject: 'Welcome to OnePazz!');
     }
 
     public function content(): Content

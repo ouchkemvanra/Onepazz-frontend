@@ -20,7 +20,7 @@ class EmployerRejectedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Update on your KhmerFit registration');
+        return new Envelope(subject: 'Update on your OnePazz registration');
     }
 
     public function content(): Content

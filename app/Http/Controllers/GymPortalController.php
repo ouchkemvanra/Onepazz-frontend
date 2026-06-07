@@ -115,7 +115,7 @@ class GymPortalController extends Controller
                 'units'       => $units,
                 'payout_usd'  => $payout?->payout_usd ?? 0,
                 'payout_khr'  => $payout?->payout_khr ?? 0,
-                'khmerfit_cut' => $payout?->khmerfit_cut ?? 0,
+                'onepazz_cut' => $payout?->onepazz_cut ?? 0,
                 'status'      => $payout?->status ?? ($date->isSameMonth(now()) ? 'current' : 'estimated'),
             ];
         }

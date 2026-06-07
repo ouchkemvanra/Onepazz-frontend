@@ -15,10 +15,10 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 </style></head>
 <body>
 <div class="wrap">
-    <div class="header"><h1>🎉 Your KhmerFit Account is Active!</h1></div>
+    <div class="header"><h1>🎉 Your OnePazz Account is Active!</h1></div>
     <div class="body">
         <p>Hi {{ $employer->contact_name }},</p>
-        <p>Great news! Your payment has been verified and your KhmerFit account for <strong>{{ $employer->company_name }}</strong> is now <strong>active</strong>.</p>
+        <p>Great news! Your payment has been verified and your OnePazz account for <strong>{{ $employer->company_name }}</strong> is now <strong>active</strong>.</p>
         <div class="btn-wrap">
             <a href="{{ url('/login') }}" class="btn">Log In to Your Dashboard →</a>
         </div>
@@ -26,13 +26,13 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
         <ol class="steps">
             <li>Log in and complete your company profile</li>
             <li>Invite your employees under <em>Employees</em> in the dashboard</li>
-            <li>Employees can browse and check in to partner gyms with the KhmerFit app</li>
+            <li>Employees can browse and check in to partner gyms with the OnePazz app</li>
             <li>Track usage and costs under <em>Reports</em></li>
         </ol>
-        <p>Need help? Email us at <a href="mailto:support@khmerfit.com.kh" style="color:#0d9488;">support@khmerfit.com.kh</a>.</p>
-        <p>Welcome aboard,<br>The KhmerFit Team</p>
+        <p>Need help? Email us at <a href="mailto:support@onepazz.com.kh" style="color:#0d9488;">support@onepazz.com.kh</a>.</p>
+        <p>Welcome aboard,<br>The OnePazz Team</p>
     </div>
-    <div class="footer"><p>KhmerFit · Phnom Penh, Cambodia</p></div>
+    <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>
 </div>
 </body>
 </html>

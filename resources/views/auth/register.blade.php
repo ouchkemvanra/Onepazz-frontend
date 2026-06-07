@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register — KhmerFit</title>
+    <title>Register — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -25,7 +25,7 @@
     <div class="text-center mb-8">
         <a href="/" class="inline-flex items-center gap-2 text-teal-600 font-bold text-xl">
             <div class="w-9 h-9 bg-teal-600 rounded-xl flex items-center justify-center text-white">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
         <h1 class="text-2xl font-bold mt-4 text-gray-800">{{ __('auth.sign_up_heading') }}</h1>
         <p class="text-sm text-gray-400 mt-1">Join Cambodia's corporate wellness network</p>

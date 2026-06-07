@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Gym — Admin — KhmerFit</title>
+    <title>Add New Gym — Admin — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -192,7 +192,7 @@
                         class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">KhmerFit Cut %</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">OnePazz Cut %</label>
                     <input type="number" step="0.01" min="0" max="100" name="revenue_share_pct" value="{{ old('revenue_share_pct', '30') }}"
                         class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono">
                 </div>

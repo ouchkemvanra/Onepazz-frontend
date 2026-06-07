@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings — Admin — KhmerFit</title>
+    <title>Settings — Admin — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit Admin
+            OnePazz Admin
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-500 hover:text-gray-800">Dashboard</a>
@@ -121,7 +121,7 @@
     {{-- Revenue Share Settings --}}
     <div class="mt-8 bg-white rounded-xl border border-gray-200 p-6">
         <h3 class="font-semibold mb-1">Revenue Share Settings</h3>
-        <p class="text-sm text-gray-500 mb-6">Configure how many check-ins equal one payout unit per tier, and the default KhmerFit cut.</p>
+        <p class="text-sm text-gray-500 mb-6">Configure how many check-ins equal one payout unit per tier, and the default OnePazz cut.</p>
 
         <form method="POST" action="{{ route('admin.settings.revenue-config') }}">
             @csrf
@@ -142,7 +142,7 @@
                            class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Default KhmerFit Cut (%)</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Default OnePazz Cut (%)</label>
                     <div class="flex items-center gap-2">
                         <input type="number" name="revenue_share_pct_default" value="{{ old('revenue_share_pct_default', $revenueShareDefault) }}" min="0" max="100" step="0.01" required
                                class="border border-gray-200 rounded-lg px-4 py-2 w-32 font-mono">

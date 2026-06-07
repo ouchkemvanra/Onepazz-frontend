@@ -21,8 +21,8 @@ class GymAdminNotificationMail extends Mailable
     public function envelope(): Envelope
     {
         $subject = match($this->event) {
-            'accepted' => "[KhmerFit] {$this->application->studio_name} accepted your invitation",
-            default    => "[KhmerFit] New gym application from {$this->application->studio_name}",
+            'accepted' => "[OnePazz] {$this->application->studio_name} accepted your invitation",
+            default    => "[OnePazz] New gym application from {$this->application->studio_name}",
         };
 
         return new Envelope(subject: $subject);

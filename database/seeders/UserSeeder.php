@@ -62,9 +62,9 @@ class UserSeeder extends Seeder
                 'preferred_currency' => 'khr',
             ],
             [
-                'full_name'          => 'KhmerFit Admin',
+                'full_name'          => 'OnePazz Admin',
                 'full_name_kh'       => null,
-                'email'              => 'admin@khmerfit.com.kh',
+                'email'              => 'admin@onepazz.com.kh',
                 'password'           => Hash::make('adminpassword!'),
                 'phone'              => null,
                 'role'               => 'platform_admin',

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KhmerFit Usage Report — {{ \Carbon\Carbon::createFromFormat('Y-m', $month)->format('F Y') }}</title>
+<title>OnePazz Usage Report — {{ \Carbon\Carbon::createFromFormat('Y-m', $month)->format('F Y') }}</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: DejaVu Sans, Arial, sans-serif; font-size: 10px; color: #1f2937; background: #fff; }
@@ -49,7 +49,7 @@
 <div class="header">
     <div class="header-top">
         <div>
-            <div class="brand">🏃 KhmerFit</div>
+            <div class="brand">🏃 OnePazz</div>
             <div class="brand-sub">Corporate Wellness Platform · Phnom Penh, Cambodia</div>
         </div>
         <div class="report-title">
@@ -147,7 +147,7 @@
     {{-- ── FOOTER ── --}}
     <div class="footer">
         <span>{{ $employer->company_name }} · Generated {{ now()->format('d M Y, H:i') }}</span>
-        <span>KhmerFit Co., Ltd · Phnom Penh, Cambodia · khmerfit.com.kh</span>
+        <span>OnePazz Co., Ltd · Phnom Penh, Cambodia · onepazz.com.kh</span>
     </div>
 
 </div>

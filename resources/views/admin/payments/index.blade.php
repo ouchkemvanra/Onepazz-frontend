@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payments — Admin — KhmerFit</title>
+    <title>Payments — Admin — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit Admin
+            OnePazz Admin
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-500 hover:text-gray-800">Dashboard</a>

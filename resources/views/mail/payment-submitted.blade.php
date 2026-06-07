@@ -11,7 +11,7 @@
 
     {{-- Header --}}
     <div style="background: #0f766e; padding: 24px 32px;">
-        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 KhmerFit Admin</p>
+        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 OnePazz Admin</p>
     </div>
 
     {{-- Body --}}
@@ -55,7 +55,7 @@
 
     {{-- Footer --}}
     <div style="padding: 16px 32px; border-top: 1px solid #f3f4f6; font-size: 12px; color: #9ca3af;">
-        KhmerFit Co., Ltd · Phnom Penh, Cambodia<br>
+        OnePazz Co., Ltd · Phnom Penh, Cambodia<br>
         This is an automated notification. Do not reply to this email.
     </div>
 

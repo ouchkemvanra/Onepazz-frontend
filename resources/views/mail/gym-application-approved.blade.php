@@ -18,11 +18,11 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 KhmerFit</h1>
+        <h1>🏃 OnePazz</h1>
     </div>
     <div class="body">
         <p>Hi {{ $application->contact_name }},</p>
-        <p>🎉 Congratulations! Your application for <strong>{{ $application->studio_name }}</strong> has been <strong>approved</strong>. Welcome to the KhmerFit partner network!</p>
+        <p>🎉 Congratulations! Your application for <strong>{{ $application->studio_name }}</strong> has been <strong>approved</strong>. Welcome to the OnePazz partner network!</p>
 
         @if($loginEmail && $tempPassword)
         <p>We've created your partner portal account. Here are your login credentials:</p>
@@ -42,11 +42,11 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
             <li>Your QR code for member check-ins is ready in the portal</li>
         </ul>
 
-        <p>If you need any help getting started, email us at <a href="mailto:partners@khmerfit.com.kh" style="color:#0d9488;">partners@khmerfit.com.kh</a>.</p>
-        <p>Welcome aboard,<br>The KhmerFit Team</p>
+        <p>If you need any help getting started, email us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a>.</p>
+        <p>Welcome aboard,<br>The OnePazz Team</p>
     </div>
     <div class="footer">
-        <p>KhmerFit · Phnom Penh, Cambodia</p>
+        <p>OnePazz · Phnom Penh, Cambodia</p>
     </div>
 </div>
 </body>

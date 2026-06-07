@@ -23,10 +23,10 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 </style></head>
 <body>
 <div class="wrap">
-    <div class="header"><h1>🏃 KhmerFit — Registration Received</h1></div>
+    <div class="header"><h1>🏃 OnePazz — Registration Received</h1></div>
     <div class="body">
         <p>Hi {{ $employer->contact_name }},</p>
-        <p>Thank you for registering <strong>{{ $employer->company_name }}</strong> on KhmerFit. To activate your account, please complete the bank transfer below.</p>
+        <p>Thank you for registering <strong>{{ $employer->company_name }}</strong> on OnePazz. To activate your account, please complete the bank transfer below.</p>
 
         <div class="ref">
             <div class="label">Your Payment Reference Code</div>
@@ -49,10 +49,10 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
         </div>
 
         <p>Once your payment is received and verified, your account will be activated within <strong>1–2 business days</strong>. You'll receive a confirmation email as soon as it's ready.</p>
-        <p>If you have any questions, contact us at <a href="mailto:billing@khmerfit.com.kh" style="color:#0d9488;">billing@khmerfit.com.kh</a>.</p>
-        <p>The KhmerFit Team</p>
+        <p>If you have any questions, contact us at <a href="mailto:billing@onepazz.com.kh" style="color:#0d9488;">billing@onepazz.com.kh</a>.</p>
+        <p>The OnePazz Team</p>
     </div>
-    <div class="footer"><p>KhmerFit · Phnom Penh, Cambodia</p></div>
+    <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>
 </div>
 </body>
 </html>

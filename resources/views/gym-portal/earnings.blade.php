@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earnings — {{ $gym->name }} — KhmerFit Partner</title>
+    <title>Earnings — {{ $gym->name }} — OnePazz Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -22,7 +22,7 @@
     <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
         <p class="text-sm text-blue-700">
             Payouts are processed on the <strong>5th of each month</strong> for the previous month.
-            Your KhmerFit cut is <strong>{{ $gym->effectiveRevenueSharePct() }}%</strong>.
+            Your OnePazz cut is <strong>{{ $gym->effectiveRevenueSharePct() }}%</strong>.
         </p>
     </div>
 
@@ -35,7 +35,7 @@
                         <th class="text-right py-3 px-4 text-gray-400 font-medium">Check-ins</th>
                         <th class="text-right py-3 px-4 text-gray-400 font-medium">Units</th>
                         <th class="text-right py-3 px-4 text-gray-400 font-medium">Your Payout (USD)</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">KhmerFit Cut (USD)</th>
+                        <th class="text-right py-3 px-4 text-gray-400 font-medium">OnePazz Cut (USD)</th>
                         <th class="text-right py-3 px-4 text-gray-400 font-medium">Payout (KHR)</th>
                         <th class="text-center py-3 px-4 text-gray-400 font-medium">Status</th>
                     </tr>
@@ -47,7 +47,7 @@
                         <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['checkins']) }}</td>
                         <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['units']) }}</td>
                         <td class="py-3 px-4 text-right font-semibold text-gray-800">${{ number_format($row['payout_usd'], 2) }}</td>
-                        <td class="py-3 px-4 text-right text-gray-500">${{ number_format($row['khmerfit_cut'], 2) }}</td>
+                        <td class="py-3 px-4 text-right text-gray-500">${{ number_format($row['onepazz_cut'], 2) }}</td>
                         <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['payout_khr']) }} ៛</td>
                         <td class="py-3 px-4 text-center">
                             @php

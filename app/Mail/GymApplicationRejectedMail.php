@@ -20,7 +20,7 @@ class GymApplicationRejectedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Update on your KhmerFit application');
+        return new Envelope(subject: 'Update on your OnePazz application');
     }
 
     public function content(): Content

@@ -17,7 +17,7 @@ class ClassBookingPromotedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'You\'re in! Your waitlist spot is confirmed — KhmerFit');
+        return new Envelope(subject: 'You\'re in! Your waitlist spot is confirmed — OnePazz');
     }
 
     public function content(): Content

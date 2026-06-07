@@ -14,16 +14,16 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 </style></head>
 <body>
 <div class="wrap">
-    <div class="header"><h1>🏃 KhmerFit — Update on Your Registration</h1></div>
+    <div class="header"><h1>🏃 OnePazz — Update on Your Registration</h1></div>
     <div class="body">
         <p>Hi {{ $employer->contact_name }},</p>
-        <p>Thank you for your interest in KhmerFit. After reviewing your registration for <strong>{{ $employer->company_name }}</strong>, we're unable to proceed at this time.</p>
+        <p>Thank you for your interest in OnePazz. After reviewing your registration for <strong>{{ $employer->company_name }}</strong>, we're unable to proceed at this time.</p>
         <div class="reason"><p><strong>Reason:</strong> {{ $reason }}</p></div>
         <p>We appreciate your interest and encourage you to reach out if you'd like to discuss further or reapply in the future.</p>
-        <p>Contact us at <a href="mailto:support@khmerfit.com.kh" style="color:#0d9488;">support@khmerfit.com.kh</a>.</p>
-        <p>The KhmerFit Team</p>
+        <p>Contact us at <a href="mailto:support@onepazz.com.kh" style="color:#0d9488;">support@onepazz.com.kh</a>.</p>
+        <p>The OnePazz Team</p>
     </div>
-    <div class="footer"><p>KhmerFit · Phnom Penh, Cambodia</p></div>
+    <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>
 </div>
 </body>
 </html>

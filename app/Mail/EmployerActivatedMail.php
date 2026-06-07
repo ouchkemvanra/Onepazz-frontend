@@ -17,7 +17,7 @@ class EmployerActivatedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Your KhmerFit account is now active!');
+        return new Envelope(subject: 'Your OnePazz account is now active!');
     }
 
     public function content(): Content

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — KhmerFit</title>
+    <title>Login — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -58,9 +58,9 @@
 
     <div class="mt-4 bg-white rounded-xl border border-gray-200 p-4">
         <p class="text-xs text-gray-400 mb-2">Quick login:</p>
-        <button onclick="fillLogin('admin@khmerfit.com.kh','adminpassword!')"
+        <button onclick="fillLogin('admin@onepazz.com.kh','adminpassword!')"
             class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Platform Admin — admin@khmerfit.com.kh
+            Platform Admin — admin@onepazz.com.kh
         </button>
         <button onclick="fillLogin('sokha@smartretail.com.kh','password123')"
             class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">

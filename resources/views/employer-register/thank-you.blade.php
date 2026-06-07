@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Received — KhmerFit</title>
+    <title>Registration Received — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -13,7 +13,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
     </div>
 </nav>
@@ -28,7 +28,7 @@
     </div>
 
     <h1 class="text-3xl font-bold text-gray-800 mb-2">Registration Received!</h1>
-    <p class="text-gray-500 mb-10">Thank you for registering with KhmerFit. Our team will review your application within 24 hours and activate your account once verified.</p>
+    <p class="text-gray-500 mb-10">Thank you for registering with OnePazz. Our team will review your application within 24 hours and activate your account once verified.</p>
 
     {{-- Reference Code --}}
     @if($refCode)
@@ -102,7 +102,7 @@
     </div>
 
     <a href="{{ route('home') }}" class="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 text-sm font-medium">
-        ← Back to KhmerFit
+        ← Back to OnePazz
     </a>
 </div>
 </body>

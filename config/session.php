@@ -156,7 +156,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', 'khmerfit.test'),
+    'domain' => env('SESSION_DOMAIN', 'onepazz.test'),
 
     /*
     |--------------------------------------------------------------------------

@@ -20,7 +20,7 @@ class GymInvitationMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: "You're invited to join KhmerFit");
+        return new Envelope(subject: "You're invited to join OnePazz");
     }
 
     public function content(): Content

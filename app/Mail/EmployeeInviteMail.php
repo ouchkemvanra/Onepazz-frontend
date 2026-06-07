@@ -25,7 +25,7 @@ class EmployeeInviteMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Welcome to KhmerFit — {$this->employer->company_name}",
+            subject: "Welcome to OnePazz — {$this->employer->company_name}",
         );
     }
 

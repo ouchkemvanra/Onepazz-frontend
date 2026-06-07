@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KhmerFit — Corporate Wellness Platform</title>
+    <title>OnePazz — Corporate Wellness Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
         <div class="flex items-center gap-4">
     <a href="#plans" class="text-sm text-gray-500 hover:text-gray-800">Plans</a>
@@ -31,6 +31,8 @@
         <a href="{{ route('login') }}" class="text-sm text-gray-500 hover:text-gray-800">{{ __('auth.sign_in') }}</a>
         <a href="{{ route('register') }}" class="text-sm bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700">{{ __('home.get_started') }}</a>
     @endauth
+
+            {{-- Language toggle --}}
     <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
         <form method="POST" action="{{ route('language.switch', 'en') }}" class="inline">
             @csrf
@@ -41,6 +43,8 @@
             <button type="submit" class="px-2.5 py-1 text-xs font-khmer {{ App::getLocale() === 'km' ? 'bg-teal-600 text-white' : 'text-gray-500 hover:bg-gray-50' }}">ខ្មែរ</button>
         </form>
     </div>
+
+            {{-- Currency toggle --}}
     <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
         <form method="POST" action="{{ route('currency.switch', 'usd') }}" class="inline">
             @csrf
@@ -51,6 +55,7 @@
             <button type="submit" class="px-2.5 py-1 text-xs {{ $currency === 'khr' ? 'bg-teal-600 text-white' : 'text-gray-500 hover:bg-gray-50' }}">៛ KHR</button>
         </form>
     </div>
+
 </div>
     </div>
 </nav>
@@ -166,7 +171,7 @@
 
 {{-- FOOTER --}}
 <footer class="border-t border-gray-200 py-8 text-center text-sm text-gray-400">
-    © {{ date('Y') }} KhmerFit Co., Ltd · Phnom Penh, Cambodia
+    © {{ date('Y') }} OnePazz Co., Ltd · Phnom Penh, Cambodia
 </footer>
 
 </body>

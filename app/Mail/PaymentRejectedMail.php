@@ -20,7 +20,7 @@ class PaymentRejectedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: '[KhmerFit] Payment Requires Attention');
+        return new Envelope(subject: '[OnePazz] Payment Requires Attention');
     }
 
     public function content(): Content

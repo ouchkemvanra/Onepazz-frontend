@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// KhmerFit — Controllers
+// OnePazz — Controllers
 // Each section = separate file under app/Http/Controllers/
 // ============================================================
 
@@ -355,7 +355,7 @@ class BillingController extends Controller
         $bankDetails = [
             'bank'    => PlatformConfig::get('bank_name', 'ACLEDA Bank'),
             'account' => PlatformConfig::get('bank_account', '1234-5678-9012-3456'),
-            'holder'  => PlatformConfig::get('bank_holder', 'KhmerFit Co., Ltd'),
+            'holder'  => PlatformConfig::get('bank_holder', 'OnePazz Co., Ltd'),
         ];
         return view('dashboard.billing.index', compact('employer', 'invoices', 'bankDetails'));
     }
@@ -426,7 +426,7 @@ class ReportController extends Controller
             ->orderByDesc('checked_in_at')
             ->get();
 
-        $filename = "khmerfit-report-{$month}.csv";
+        $filename = "onepazz-report-{$month}.csv";
         $headers  = [
             'Content-Type'        => 'text/csv; charset=utf-8',
             'Content-Disposition' => "attachment; filename=\"{$filename}\"",
@@ -474,7 +474,7 @@ class ReportController extends Controller
         $pdf = Pdf::loadView('reports.usage-pdf', compact('employer', 'checkins', 'month', 'khrRate', 'sub'));
         $pdf->setPaper('A4');
 
-        return $pdf->download("khmerfit-report-{$month}.pdf");
+        return $pdf->download("onepazz-report-{$month}.pdf");
     }
 }
 

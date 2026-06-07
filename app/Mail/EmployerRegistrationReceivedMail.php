@@ -22,7 +22,7 @@ class EmployerRegistrationReceivedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'KhmerFit Registration Received — Action Required');
+        return new Envelope(subject: 'OnePazz Registration Received — Action Required');
     }
 
     public function content(): Content

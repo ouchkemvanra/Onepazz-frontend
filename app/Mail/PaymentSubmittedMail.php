@@ -22,7 +22,7 @@ class PaymentSubmittedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "[KhmerFit] Payment Submitted — {$this->employer->company_name}",
+            subject: "[OnePazz] Payment Submitted — {$this->employer->company_name}",
         );
     }
 

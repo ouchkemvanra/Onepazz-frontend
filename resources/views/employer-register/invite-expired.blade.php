@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation Expired — KhmerFit</title>
+    <title>Invitation Expired — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -13,7 +13,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
     </div>
 </nav>
@@ -26,12 +26,12 @@
     </div>
 
     <h1 class="text-2xl font-bold text-gray-800 mb-3">Invitation Expired</h1>
-    <p class="text-gray-500 mb-8">This invitation link is no longer valid. Invitations expire after 14 days for security. Please contact the KhmerFit team to request a new invitation.</p>
+    <p class="text-gray-500 mb-8">This invitation link is no longer valid. Invitations expire after 14 days for security. Please contact the OnePazz team to request a new invitation.</p>
 
     <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 text-left space-y-3">
         <p class="text-sm font-medium text-gray-700">To get a new invitation:</p>
         <ul class="text-sm text-gray-500 space-y-2 list-disc list-inside">
-            <li>Email us at <a href="mailto:hello@khmerfit.kh" class="text-teal-600 hover:underline">hello@khmerfit.kh</a></li>
+            <li>Email us at <a href="mailto:hello@onepazz.kh" class="text-teal-600 hover:underline">hello@onepazz.kh</a></li>
             <li>Or <a href="{{ route('employer-register.create') }}" class="text-teal-600 hover:underline">register directly</a> without an invitation</li>
         </ul>
     </div>

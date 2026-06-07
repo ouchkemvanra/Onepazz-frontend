@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit {{ $gym->name }} — Admin — KhmerFit</title>
+    <title>Edit {{ $gym->name }} — Admin — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit Admin
+            OnePazz Admin
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('admin.gyms.index') }}" class="text-sm text-teal-600 font-medium">← Back to Gyms</a>
@@ -53,7 +53,7 @@
                     <input type="number" step="0.01" min="0" name="monthly_fee_usd" value="{{ old('monthly_fee_usd', $gym->monthly_fee_usd) }}" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">KhmerFit Cut % (override)</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">OnePazz Cut % (override)</label>
                     <input type="number" step="0.01" min="0" max="100" name="revenue_share_pct" value="{{ old('revenue_share_pct', $gym->revenue_share_pct) }}" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
                     <p class="text-xs text-gray-400 mt-1">Platform default is {{ \App\Models\PlatformConfig::get('revenue_share_pct_default', 30) }}%</p>
                 </div>

@@ -17,7 +17,7 @@ class PaymentConfirmedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: '[KhmerFit] Payment Confirmed');
+        return new Envelope(subject: '[OnePazz] Payment Confirmed');
     }
 
     public function content(): Content

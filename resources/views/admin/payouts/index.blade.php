@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payouts — Admin — KhmerFit</title>
+    <title>Payouts — Admin — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit Admin
+            OnePazz Admin
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-500 hover:text-gray-800">Dashboard</a>
@@ -76,7 +76,7 @@
                         <th class="text-right py-3 px-3 text-gray-400 font-medium">Units</th>
                         <th class="text-right py-3 px-3 text-gray-400 font-medium">Value/Unit</th>
                         <th class="text-right py-3 px-3 text-gray-400 font-medium">Payout USD</th>
-                        <th class="text-right py-3 px-3 text-gray-400 font-medium">KhmerFit Cut</th>
+                        <th class="text-right py-3 px-3 text-gray-400 font-medium">OnePazz Cut</th>
                         <th class="text-right py-3 px-3 text-gray-400 font-medium">Payout KHR</th>
                         <th class="text-center py-3 px-3 text-gray-400 font-medium">Status</th>
                     </tr>
@@ -96,7 +96,7 @@
                         <td class="py-3 px-3 text-right text-gray-600">{{ number_format($row['units']) }}</td>
                         <td class="py-3 px-3 text-right font-mono text-gray-600">${{ number_format($row['value_per_unit'], 4) }}</td>
                         <td class="py-3 px-3 text-right font-semibold text-gray-800">${{ number_format($row['payout_usd'], 2) }}</td>
-                        <td class="py-3 px-3 text-right text-gray-500">${{ number_format($row['khmerfit_cut_usd'], 2) }}</td>
+                        <td class="py-3 px-3 text-right text-gray-500">${{ number_format($row['onepazz_cut_usd'], 2) }}</td>
                         <td class="py-3 px-3 text-right text-gray-600">{{ number_format($row['payout_khr']) }} ៛</td>
                         <td class="py-3 px-3 text-center">
                             @if($savedPayout)

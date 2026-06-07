@@ -8,7 +8,7 @@ class PartnerPayout extends Model
 {
     protected $fillable = [
         'gym_id', 'year', 'month', 'checkins', 'units',
-        'value_per_unit', 'payout_usd', 'khmerfit_cut',
+        'value_per_unit', 'payout_usd', 'onepazz_cut',
         'khr_rate', 'payout_khr', 'status', 'confirmed_at', 'confirmed_by',
     ];
 

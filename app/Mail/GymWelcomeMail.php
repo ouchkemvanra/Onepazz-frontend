@@ -22,7 +22,7 @@ class GymWelcomeMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Welcome to KhmerFit Partner Portal');
+        return new Envelope(subject: 'Welcome to OnePazz Partner Portal');
     }
 
     public function content(): Content

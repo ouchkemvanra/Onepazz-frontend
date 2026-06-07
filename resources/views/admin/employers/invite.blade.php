@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invite Employer — Admin — KhmerFit</title>
+    <title>Invite Employer — Admin — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <div class="max-w-2xl mx-auto px-6 py-8">
     <div class="mb-6"><a href="{{ route('admin.employers.index', ['tab'=>'invitations']) }}" class="text-sm text-teal-600 hover:text-teal-700">← Back to Invitations</a></div>
     <h1 class="text-2xl font-bold text-gray-800 mb-1">Send Employer Invitation</h1>
-    <p class="text-sm text-gray-400 mb-8">Invite a company to register on KhmerFit. They'll receive a personalised link valid for 14 days.</p>
+    <p class="text-sm text-gray-400 mb-8">Invite a company to register on OnePazz. They'll receive a personalised link valid for 14 days.</p>
 
     @if($errors->any())
     <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">

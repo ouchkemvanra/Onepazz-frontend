@@ -15,20 +15,20 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 KhmerFit</h1>
+        <h1>🏃 OnePazz</h1>
     </div>
     <div class="body">
         <p>Hi {{ $application->contact_name }},</p>
-        <p>Thank you for your interest in partnering with KhmerFit. After reviewing your application for <strong>{{ $application->studio_name }}</strong>, we're unable to move forward at this time.</p>
+        <p>Thank you for your interest in partnering with OnePazz. After reviewing your application for <strong>{{ $application->studio_name }}</strong>, we're unable to move forward at this time.</p>
         <div class="reason">
             <p><strong>Reason:</strong> {{ $reason }}</p>
         </div>
-        <p>We appreciate the time you took to apply and encourage you to address the points above and reapply in the future. If you'd like to discuss this further, please reach out to us at <a href="mailto:partners@khmerfit.com.kh" style="color:#0d9488;">partners@khmerfit.com.kh</a>.</p>
-        <p>Thank you again for your interest in KhmerFit.</p>
-        <p>Best regards,<br>The KhmerFit Team</p>
+        <p>We appreciate the time you took to apply and encourage you to address the points above and reapply in the future. If you'd like to discuss this further, please reach out to us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a>.</p>
+        <p>Thank you again for your interest in OnePazz.</p>
+        <p>Best regards,<br>The OnePazz Team</p>
     </div>
     <div class="footer">
-        <p>KhmerFit · Phnom Penh, Cambodia</p>
+        <p>OnePazz · Phnom Penh, Cambodia</p>
     </div>
 </div>
 </body>

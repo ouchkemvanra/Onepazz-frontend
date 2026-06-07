@@ -328,7 +328,7 @@ class AdminController extends Controller
         $payouts    = $service->calculatePartnerPayouts($year, $month);
         $confirmed  = PartnerPayout::where('year', $year)->where('month', $month)->get()->keyBy('gym_id');
         $totalPayout = $payouts->sum('payout_usd');
-        $totalCut    = $payouts->sum('khmerfit_cut_usd');
+        $totalCut    = $payouts->sum('onepazz_cut_usd');
 
         return view('admin.payouts.index', compact(
             'payouts', 'confirmed', 'year', 'month', 'totalPayout', 'totalCut'
@@ -351,7 +351,7 @@ class AdminController extends Controller
                     'units'          => $row['units'],
                     'value_per_unit' => $row['value_per_unit'],
                     'payout_usd'     => $row['payout_usd'],
-                    'khmerfit_cut'   => $row['khmerfit_cut_usd'],
+                    'onepazz_cut'   => $row['onepazz_cut_usd'],
                     'khr_rate'       => $khrRate,
                     'payout_khr'     => $row['payout_khr'],
                     'status'         => 'confirmed',
@@ -374,11 +374,11 @@ class AdminController extends Controller
 
         return response()->streamDownload(function () use ($rows) {
             $out = fopen('php://output', 'w');
-            fputcsv($out, ['Partner', 'Tier', 'Check-ins', 'Units', 'Value/Unit', 'Payout USD', 'KhmerFit Cut', 'Payout KHR']);
+            fputcsv($out, ['Partner', 'Tier', 'Check-ins', 'Units', 'Value/Unit', 'Payout USD', 'OnePazz Cut', 'Payout KHR']);
             foreach ($rows as $r) {
                 fputcsv($out, [
                     $r['gym_name'], $r['tier'], $r['checkins'], $r['units'],
-                    $r['value_per_unit'], $r['payout_usd'], $r['khmerfit_cut_usd'], $r['payout_khr'],
+                    $r['value_per_unit'], $r['payout_usd'], $r['onepazz_cut_usd'], $r['payout_khr'],
                 ]);
             }
             fclose($out);

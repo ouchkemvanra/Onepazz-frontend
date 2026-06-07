@@ -61,7 +61,7 @@ class RevenueShareService
                 'units'            => $data['units'],
                 'value_per_unit'   => round($valuePerUnit, 4),
                 'payout_usd'       => $payoutUsd,
-                'khmerfit_cut_usd' => $cut,
+                'onepazz_cut_usd' => $cut,
                 'payout_khr'       => round($payoutUsd * $khrRate),
                 'revenue_share_pct' => $sharePct,
             ];

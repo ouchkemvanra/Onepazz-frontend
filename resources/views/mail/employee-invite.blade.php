@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to KhmerFit</title>
+    <title>Welcome to OnePazz</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; margin: 0; padding: 40px 20px;">
 
@@ -11,7 +11,7 @@
 
     {{-- Header --}}
     <div style="background: #0f766e; padding: 24px 32px;">
-        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 KhmerFit</p>
+        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 OnePazz</p>
         <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin: 4px 0 0;">Cambodia's Corporate Wellness Platform</p>
     </div>
 
@@ -21,7 +21,7 @@
             Welcome, {{ $user->full_name }}! 👋
         </h2>
         <p style="color: #6b7280; font-size: 14px; line-height: 1.6;">
-            You've been added to the <strong>{{ $employer->company_name }}</strong> wellness programme on KhmerFit. Your account is ready — sign in below to get started.
+            You've been added to the <strong>{{ $employer->company_name }}</strong> wellness programme on OnePazz. Your account is ready — sign in below to get started.
         </p>
 
         {{-- Login Credentials --}}
@@ -49,7 +49,7 @@
 
         <a href="{{ config('app.url') }}/login"
            style="display: inline-block; background: #0f766e; color: white; text-decoration: none; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.01em;">
-            Sign In to KhmerFit →
+            Sign In to OnePazz →
         </a>
 
         {{-- How to use --}}
@@ -58,15 +58,15 @@
             <ol style="font-size: 13px; color: #6b7280; line-height: 1.8; margin: 0; padding-left: 20px;">
                 <li>Sign in with the credentials above</li>
                 <li>Browse partner gyms at <strong>Gyms</strong></li>
-                <li>Show your membership card (<strong>{{ $employee->membership_card_no }}</strong>) at any KhmerFit partner gym</li>
+                <li>Show your membership card (<strong>{{ $employee->membership_card_no }}</strong>) at any OnePazz partner gym</li>
             </ol>
         </div>
     </div>
 
     {{-- Footer --}}
     <div style="padding: 16px 32px; border-top: 1px solid #f3f4f6; font-size: 12px; color: #9ca3af;">
-        KhmerFit Co., Ltd · Phnom Penh, Cambodia<br>
-        Questions? Contact your company HR or support@khmerfit.com.kh
+        OnePazz Co., Ltd · Phnom Penh, Cambodia<br>
+        Questions? Contact your company HR or support@onepazz.com.kh
     </div>
 
 </div>

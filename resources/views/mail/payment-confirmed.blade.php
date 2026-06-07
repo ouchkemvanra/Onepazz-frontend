@@ -11,7 +11,7 @@
 
     {{-- Header --}}
     <div style="background: #0f766e; padding: 24px 32px;">
-        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 KhmerFit</p>
+        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 OnePazz</p>
     </div>
 
     {{-- Body --}}
@@ -51,7 +51,7 @@
 
         @if($payment->notes)
         <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px; font-size: 13px; color: #1e40af;">
-            <strong>Note from KhmerFit:</strong> {{ $payment->notes }}
+            <strong>Note from OnePazz:</strong> {{ $payment->notes }}
         </div>
         @endif
 
@@ -63,8 +63,8 @@
 
     {{-- Footer --}}
     <div style="padding: 16px 32px; border-top: 1px solid #f3f4f6; font-size: 12px; color: #9ca3af;">
-        KhmerFit Co., Ltd · Phnom Penh, Cambodia<br>
-        Questions? Contact billing@khmerfit.com.kh
+        OnePazz Co., Ltd · Phnom Penh, Cambodia<br>
+        Questions? Contact billing@onepazz.com.kh
     </div>
 
 </div>

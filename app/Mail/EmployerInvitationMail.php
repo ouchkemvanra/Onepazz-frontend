@@ -17,7 +17,7 @@ class EmployerInvitationMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: "You're invited to join KhmerFit Corporate Wellness");
+        return new Envelope(subject: "You're invited to join OnePazz Corporate Wellness");
     }
 
     public function content(): Content

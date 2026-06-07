@@ -48,7 +48,7 @@ class ReportController extends Controller
         [$month, $year, $mon] = $this->resolveMonth($request);
         $checkins = $this->getCheckins($employer->id, $year, $mon);
 
-        $filename = "khmerfit-report-{$month}.csv";
+        $filename = "onepazz-report-{$month}.csv";
 
         $callback = function () use ($checkins) {
             $handle = fopen('php://output', 'w');
@@ -101,6 +101,6 @@ class ReportController extends Controller
             'employer', 'checkins', 'month', 'khrRate', 'sub'
         ))->setPaper('A4', 'landscape');
 
-        return $pdf->download("khmerfit-report-{$month}.pdf");
+        return $pdf->download("onepazz-report-{$month}.pdf");
     }
 }

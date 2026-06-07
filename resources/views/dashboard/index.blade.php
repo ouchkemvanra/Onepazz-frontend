@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — KhmerFit</title>
+    <title>Dashboard — OnePazz</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
         <div class="flex items-center gap-6">
             <a href="{{ route('dashboard.index') }}" class="text-sm font-medium text-teal-600">{{ __('nav.dashboard') }}</a>
@@ -84,7 +84,7 @@
     <div class="bg-teal-50 border border-teal-200 rounded-xl p-6 mb-6" x-data="{ open: true }" x-show="open">
         <div class="flex items-start justify-between mb-4">
             <div>
-                <p class="font-semibold text-teal-800 text-lg">Welcome to KhmerFit! Let's get you set up.</p>
+                <p class="font-semibold text-teal-800 text-lg">Welcome to OnePazz! Let's get you set up.</p>
                 <p class="text-sm text-teal-600 mt-0.5">Complete these steps to activate your corporate wellness programme.</p>
             </div>
             <button @click="open = false" class="text-teal-400 hover:text-teal-600 ml-4 shrink-0">
@@ -118,7 +118,7 @@
                 </div>
                 <div>
                     <p class="text-sm font-medium text-gray-800">Add your first employee</p>
-                    <p class="text-xs text-gray-400 mt-0.5">Invite staff members to start using KhmerFit.</p>
+                    <p class="text-xs text-gray-400 mt-0.5">Invite staff members to start using OnePazz.</p>
                     @if($employer->status === 'active')
                     <a href="{{ route('dashboard.employees.create') }}" class="inline-block mt-2 text-xs bg-teal-600 text-white px-3 py-1 rounded-lg hover:bg-teal-700">Add Employees →</a>
                     @endif

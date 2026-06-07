@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Received — KhmerFit</title>
+    <title>Application Received — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -17,7 +17,7 @@
     <p class="text-gray-600 mb-2">Your application has been received.</p>
     <p class="text-gray-500 text-sm mb-8">We'll review it and get back to you within <strong>3–5 business days</strong>. Keep an eye on your inbox.</p>
     <a href="/" class="inline-block bg-teal-600 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-teal-700 transition text-sm">
-        Back to KhmerFit →
+        Back to OnePazz →
     </a>
 </div>
 </body>

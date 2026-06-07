@@ -1,5 +1,5 @@
 {{-- ============================================================ --}}
-{{-- KhmerFit — Blade View Templates                             --}}
+{{-- OnePazz — Blade View Templates                             --}}
 {{-- Each block shows the file path as a comment above it.      --}}
 {{-- Stack: Laravel Blade + Tailwind CSS + Alpine.js            --}}
 {{-- ============================================================ --}}
@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'KhmerFit') — KhmerFit</title>
+    <title>@yield('title', 'OnePazz') — OnePazz</title>
 
     {{-- Noto Sans Khmer + DM Sans for bilingual support --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2 font-bold text-lg text-teal-600">
                 <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-                KhmerFit
+                OnePazz
             </a>
 
             {{-- Nav links --}}

@@ -22,12 +22,12 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 You're Invited to KhmerFit</h1>
+        <h1>🏃 You're Invited to OnePazz</h1>
         <p>Corporate Wellness for Cambodia's Leading Companies</p>
     </div>
     <div class="body">
         <p>Hi {{ $invitation->contact_name }},</p>
-        <p>The KhmerFit team would like to invite <strong>{{ $invitation->company_name ?? 'your company' }}</strong> to join our corporate wellness platform — connecting your employees with Cambodia's top gyms and fitness studios.</p>
+        <p>The OnePazz team would like to invite <strong>{{ $invitation->company_name ?? 'your company' }}</strong> to join our corporate wellness platform — connecting your employees with Cambodia's top gyms and fitness studios.</p>
 
         @if($invitation->personal_message)
         <div class="msg"><p>{{ $invitation->personal_message }}</p></div>
@@ -47,9 +47,9 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
             <p>⏰ This invitation expires on <strong>{{ $invitation->invite_expires_at->format('d M Y') }}</strong></p>
         </div>
         <br>
-        <p style="font-size:12px;color:#6b7280;">Questions? Email us at <a href="mailto:partners@khmerfit.com.kh" style="color:#0d9488;">partners@khmerfit.com.kh</a></p>
+        <p style="font-size:12px;color:#6b7280;">Questions? Email us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a></p>
     </div>
-    <div class="footer"><p>KhmerFit · Phnom Penh, Cambodia</p></div>
+    <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>
 </div>
 </body>
 </html>

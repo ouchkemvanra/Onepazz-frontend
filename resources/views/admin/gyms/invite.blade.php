@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Gym Invitation — Admin — KhmerFit</title>
+    <title>Send Gym Invitation — Admin — OnePazz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -21,7 +21,7 @@
 
     <div class="mb-8">
         <h1 class="text-2xl font-bold text-gray-800">Send Gym Invitation</h1>
-        <p class="text-sm text-gray-400 mt-1">Invite a gym owner to join KhmerFit as a partner</p>
+        <p class="text-sm text-gray-400 mt-1">Invite a gym owner to join OnePazz as a partner</p>
     </div>
 
     @if(session('success'))

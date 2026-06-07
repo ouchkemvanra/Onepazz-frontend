@@ -21,7 +21,7 @@ class GymApplicationApprovedMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Welcome to KhmerFit! Your application is approved');
+        return new Envelope(subject: 'Welcome to OnePazz! Your application is approved');
     }
 
     public function content(): Content

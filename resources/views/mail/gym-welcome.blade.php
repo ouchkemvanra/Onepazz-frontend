@@ -20,7 +20,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 Welcome to KhmerFit Partner Portal</h1>
+        <h1>🏃 Welcome to OnePazz Partner Portal</h1>
     </div>
     <div class="body">
         <p>Hi {{ $user->full_name }},</p>
@@ -42,11 +42,11 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
             <li>Add your classes schedule under <em>Classes</em></li>
             <li>Invite your staff under <em>Staff</em></li>
         </ol>
-        <p>Need help? Email us at <a href="mailto:partners@khmerfit.com.kh" style="color:#0d9488;">partners@khmerfit.com.kh</a>.</p>
-        <p>Welcome aboard,<br>The KhmerFit Team</p>
+        <p>Need help? Email us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a>.</p>
+        <p>Welcome aboard,<br>The OnePazz Team</p>
     </div>
     <div class="footer">
-        <p>KhmerFit · Phnom Penh, Cambodia</p>
+        <p>OnePazz · Phnom Penh, Cambodia</p>
     </div>
 </div>
 </body>

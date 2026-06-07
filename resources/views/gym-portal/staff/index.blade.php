@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff — {{ $gym->name }} — KhmerFit Partner</title>
+    <title>Staff — {{ $gym->name }} — OnePazz Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
                 <button type="button" @click="showInvite = false" class="border border-gray-200 px-5 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Cancel</button>
             </div>
         </form>
-        <p class="text-xs text-gray-400 mt-3">If the email doesn't have a KhmerFit account yet, one will be created with a temporary password.</p>
+        <p class="text-xs text-gray-400 mt-3">If the email doesn't have a OnePazz account yet, one will be created with a temporary password.</p>
     </div>
 
     {{-- Staff Table --}}

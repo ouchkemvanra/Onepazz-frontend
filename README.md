@@ -1,4 +1,4 @@
-# KhmerFit
+# OnePazz
 
 A Laravel-based gym membership management platform for Cambodia. Employers subscribe to a plan, manage their employees' gym access, and pay invoices — while gym owners list their facilities and a platform admin oversees everything.
 
@@ -34,8 +34,8 @@ A Laravel-based gym membership management platform for Cambodia. Employers subsc
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/ouchkemvanra/Onepazz-frontend.git khmerfit
-cd khmerfit
+git clone https://github.com/ouchkemvanra/Onepazz-frontend.git onepazz
+cd onepazz
 
 # 2. One-command setup (installs deps, copies .env, generates key, migrates, builds assets)
 composer run setup

@@ -18,7 +18,7 @@ class BillingController extends Controller
         return [
             'bank'    => PlatformConfig::get('bank_name', 'ACLEDA Bank'),
             'account' => PlatformConfig::get('bank_account', '1234-5678-9012-3456'),
-            'holder'  => PlatformConfig::get('bank_holder', 'KhmerFit Co., Ltd'),
+            'holder'  => PlatformConfig::get('bank_holder', 'OnePazz Co., Ltd'),
         ];
     }
 

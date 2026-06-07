@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partner with KhmerFit — Apply Now</title>
+    <title>Partner with OnePazz — Apply Now</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
     <style>body{font-family:'DM Sans',sans-serif;}</style>
@@ -15,7 +15,7 @@
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
             <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            KhmerFit
+            OnePazz
         </a>
         <div class="flex items-center gap-4">
             <a href="{{ route('gyms.index') }}" class="text-sm text-gray-500 hover:text-gray-800">Browse Gyms</a>
@@ -29,7 +29,7 @@
     <div class="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-medium px-4 py-1.5 rounded-full mb-6">
         🇰🇭 Cambodia's #1 Corporate Wellness Platform
     </div>
-    <h1 class="text-4xl font-bold mb-4">Partner with KhmerFit</h1>
+    <h1 class="text-4xl font-bold mb-4">Partner with OnePazz</h1>
     <p class="text-gray-300 text-lg max-w-xl mx-auto mb-8">Connect your gym or fitness studio with hundreds of corporate members. Get steady revenue, zero customer acquisition costs.</p>
     <div class="flex justify-center gap-8 text-center">
         <div>
@@ -191,7 +191,7 @@
                 <input type="checkbox" name="agree_terms" value="1" {{ old('agree_terms') ? 'checked' : '' }}
                     class="mt-0.5 rounded border-gray-300 text-teal-600">
                 <span class="text-sm text-gray-700">
-                    I agree to KhmerFit's <a href="{{ route('gym-apply.terms') }}" target="_blank" class="text-teal-600 hover:underline">Partner Terms & Conditions</a> and understand that my application will be reviewed within 3–5 business days. <span class="text-red-500">*</span>
+                    I agree to OnePazz's <a href="{{ route('gym-apply.terms') }}" target="_blank" class="text-teal-600 hover:underline">Partner Terms & Conditions</a> and understand that my application will be reviewed within 3–5 business days. <span class="text-red-500">*</span>
                 </span>
             </label>
         </div>
@@ -205,7 +205,7 @@
 
 {{-- FOOTER --}}
 <div class="border-t border-gray-200 py-8 text-center">
-    <p class="text-sm text-gray-400">Questions? Email us at <a href="mailto:partners@khmerfit.com.kh" class="text-teal-600">partners@khmerfit.com.kh</a></p>
+    <p class="text-sm text-gray-400">Questions? Email us at <a href="mailto:partners@onepazz.com.kh" class="text-teal-600">partners@onepazz.com.kh</a></p>
 </div>
 
 </body>
