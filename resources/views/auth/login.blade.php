@@ -56,6 +56,7 @@
         </form>
     </div>
 
+    @if(config('app.env') === 'local')
     <div class="mt-4 bg-white rounded-xl border border-gray-200 p-4">
         <p class="text-xs text-gray-400 mb-2">Quick login:</p>
         <button onclick="fillLogin('admin@onepazz.com.kh','adminpassword!')"
@@ -83,6 +84,7 @@
             Manager (staff) — manager@fitrepublic.com.kh
         </button>
     </div>
+    @endif
 </div>
 
 <script>
