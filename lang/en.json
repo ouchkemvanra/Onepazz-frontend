@@ -7,6 +7,8 @@
     "nav.profile": "Profile",
     "nav.admin": "Admin",
     "nav.logout": "Logout",
+    "nav.partner": "Partner with us",
+    "nav.register_company": "Register your company",
 
     "auth.login": "Login",
     "auth.register": "Register",

@@ -7,6 +7,8 @@
     "nav.profile": "គណនី",
     "nav.admin": "អ្នកគ្រប់គ្រង",
     "nav.logout": "ចាកចេញ",
+    "nav.partner": "ចូលជាដៃគូ",
+    "nav.register_company": "ចុះឈ្មោះក្រុមហ៊ុន",
 
     "auth.login": "ចូល",
     "auth.register": "ចុះឈ្មោះ",
