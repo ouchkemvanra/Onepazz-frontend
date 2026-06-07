@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
                 'full_name'          => 'OnePazz Admin',
                 'full_name_kh'       => null,
                 'email'              => 'admin@onepazz.com.kh',
-                'password'           => Hash::make('adminpassword!'),
+                'password'           => Hash::make('OnePazz@2026#Adm!n'),
                 'phone'              => null,
                 'role'               => 'platform_admin',
                 'preferred_lang'     => 'en',
