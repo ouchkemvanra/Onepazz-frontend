@@ -3,13 +3,13 @@
 <head><meta charset="UTF-8"><style>
 body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:0;}
 .wrap{max-width:560px;margin:40px auto;background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;}
-.header{background:#0d9488;padding:32px;text-align:center;}
+.header{background:#0EA88A;padding:32px;text-align:center;}
 .header h1{color:#fff;margin:0;font-size:20px;}
 .body{padding:32px;}
 p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
-.ref{background:#f0fdfa;border:2px solid #0d9488;border-radius:10px;padding:20px;text-align:center;margin:20px 0;}
+.ref{background:#f0fdfa;border:2px solid #0EA88A;border-radius:10px;padding:20px;text-align:center;margin:20px 0;}
 .ref .label{font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;}
-.ref .code{font-size:28px;font-weight:700;color:#0d9488;font-family:monospace;letter-spacing:.1em;}
+.ref .code{font-size:28px;font-weight:700;color:#0EA88A;font-family:monospace;letter-spacing:.1em;}
 .bank{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:20px 0;}
 .bank-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:13px;}
 .bank-row:last-child{border:none;}
@@ -23,7 +23,7 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 </style></head>
 <body>
 <div class="wrap">
-    <div class="header"><h1>🏃 OnePazz — Registration Received</h1></div>
+    <div class="header"><h1><x-logo variant="white" size="20" style="vertical-align: -4px; margin-right: 6px" /> OnePazz — Registration Received</h1></div>
     <div class="body">
         <p>Hi {{ $employer->contact_name }},</p>
         <p>Thank you for registering <strong>{{ $employer->company_name }}</strong> on OnePazz. To activate your account, please complete the bank transfer below.</p>
@@ -49,7 +49,7 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
         </div>
 
         <p>Once your payment is received and verified, your account will be activated within <strong>1–2 business days</strong>. You'll receive a confirmation email as soon as it's ready.</p>
-        <p>If you have any questions, contact us at <a href="mailto:billing@onepazz.com.kh" style="color:#0d9488;">billing@onepazz.com.kh</a>.</p>
+        <p>If you have any questions, contact us at <a href="mailto:billing@onepazz.com.kh" style="color:#0EA88A;">billing@onepazz.com.kh</a>.</p>
         <p>The OnePazz Team</p>
     </div>
     <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>

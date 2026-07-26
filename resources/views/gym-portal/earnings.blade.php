@@ -1,70 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earnings — {{ $gym->name }} — OnePazz Partner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
-    <style>body{font-family:'DM Sans',sans-serif;}</style>
-</head>
-<body class="bg-gray-50">
+<x-layouts.gym-portal title="Earnings">
 
-@include('gym-portal._nav')
-
-<div class="max-w-6xl mx-auto px-6 py-8">
-
-    <div class="mb-8">
-        <h1 class="text-2xl font-bold text-gray-800">Earnings</h1>
-        <p class="text-sm text-gray-400 mt-1">Last 6 months revenue share history</p>
-    </div>
-
-    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-        <p class="text-sm text-blue-700">
-            Payouts are processed on the <strong>5th of each month</strong> for the previous month.
-            Your OnePazz cut is <strong>{{ $gym->effectiveRevenueSharePct() }}%</strong>.
-        </p>
-    </div>
-
-    <div class="bg-white rounded-xl border border-gray-200 p-6">
-        <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-                <thead>
-                    <tr class="border-b border-gray-200">
-                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Month</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">Check-ins</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">Units</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">Your Payout (USD)</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">OnePazz Cut (USD)</th>
-                        <th class="text-right py-3 px-4 text-gray-400 font-medium">Payout (KHR)</th>
-                        <th class="text-center py-3 px-4 text-gray-400 font-medium">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($months as $row)
-                    <tr class="border-b border-gray-50 hover:bg-gray-50">
-                        <td class="py-3 px-4 font-medium text-gray-700">{{ $row['label'] }}</td>
-                        <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['checkins']) }}</td>
-                        <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['units']) }}</td>
-                        <td class="py-3 px-4 text-right font-semibold text-gray-800">${{ number_format($row['payout_usd'], 2) }}</td>
-                        <td class="py-3 px-4 text-right text-gray-500">${{ number_format($row['onepazz_cut'], 2) }}</td>
-                        <td class="py-3 px-4 text-right text-gray-600">{{ number_format($row['payout_khr']) }} ៛</td>
-                        <td class="py-3 px-4 text-center">
-                            @php
-                                $statusMap = ['confirmed' => 'bg-green-100 text-green-700', 'paid' => 'bg-teal-100 text-teal-700', 'current' => 'bg-blue-100 text-blue-700', 'estimated' => 'bg-gray-100 text-gray-500'];
-                                $cls = $statusMap[$row['status']] ?? 'bg-gray-100 text-gray-500';
-                            @endphp
-                            <span class="px-2 py-0.5 rounded-full text-xs font-medium {{ $cls }}">
-                                {{ ucfirst($row['status']) }}
-                            </span>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+<div class="mb-8">
+    <h1 class="text-2xl font-bold text-gray-900">Earnings</h1>
+    <p class="text-sm text-gray-400 mt-1">Last 6 months revenue share history</p>
 </div>
-</body>
-</html>
+
+<div class="bg-brand-50 border border-brand-200 rounded-2xl p-5 mb-6">
+    <p class="text-sm text-brand-700">
+        Payouts are processed on the <strong class="text-brand-900">5th of each month</strong> for the previous month.
+        Your OnePazz cut is <strong class="text-brand-900">{{ $gym->effectiveRevenueSharePct() }}%</strong>.
+    </p>
+</div>
+
+<div class="card overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr>
+                    <th class="table-head">Month</th>
+                    <th class="table-head text-right">Check-ins</th>
+                    <th class="table-head text-right">Units</th>
+                    <th class="table-head text-right">Your Payout (USD)</th>
+                    <th class="table-head text-right">OnePazz Cut (USD)</th>
+                    <th class="table-head text-right">Payout (KHR)</th>
+                    <th class="table-head text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($months as $row)
+                <tr class="table-row">
+                    <td class="table-cell font-semibold text-gray-800">{{ $row['label'] }}</td>
+                    <td class="table-cell text-right text-gray-600">{{ number_format($row['checkins']) }}</td>
+                    <td class="table-cell text-right text-gray-600">{{ number_format($row['units']) }}</td>
+                    <td class="table-cell text-right font-bold text-gray-800">${{ number_format($row['payout_usd'], 2) }}</td>
+                    <td class="table-cell text-right text-gray-400">${{ number_format($row['onepazz_cut'], 2) }}</td>
+                    <td class="table-cell text-right text-gray-600">{{ number_format($row['payout_khr']) }} ៛</td>
+                    <td class="table-cell text-center">
+                        @if($row['status'] === 'paid')
+                            <span class="badge-green">Paid</span>
+                        @elseif($row['status'] === 'confirmed')
+                            <span class="badge-brand">Confirmed</span>
+                        @elseif($row['status'] === 'current')
+                            <span class="badge-amber">Current</span>
+                        @else
+                            <span class="badge-gray">Estimated</span>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</x-layouts.gym-portal>

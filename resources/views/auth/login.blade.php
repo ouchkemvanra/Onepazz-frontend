@@ -3,88 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — OnePazz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+    <title>{{ __('auth.sign_in') }} — OnePazz</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center p-6 {{ App::getLocale() === 'km' ? 'font-khmer' : 'font-sans' }}">
+<body class="bg-gray-50 min-h-screen {{ App::getLocale() === 'km' ? 'font-khmer' : 'font-sans' }}">
 
-<div class="absolute top-4 right-4 flex items-center border border-gray-200 rounded-lg overflow-hidden">
-    <form method="POST" action="{{ route('language.switch', 'en') }}" class="inline">
-        @csrf
-        <button type="submit" class="px-2.5 py-1 text-xs {{ App::getLocale() === 'en' ? 'bg-teal-600 text-white' : 'text-gray-500 hover:bg-gray-50' }}">EN</button>
-    </form>
-    <form method="POST" action="{{ route('language.switch', 'km') }}" class="inline border-l border-gray-200">
-        @csrf
-        <button type="submit" class="px-2.5 py-1 text-xs font-khmer {{ App::getLocale() === 'km' ? 'bg-teal-600 text-white' : 'text-gray-500 hover:bg-gray-50' }}">ខ្មែរ</button>
-    </form>
-</div>
+<div class="min-h-screen flex">
 
-<div class="w-full max-w-sm">
-
-    <div class="text-center mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">{{ __('auth.sign_in_heading') }}</h1>
-    </div>
-
-    <div class="bg-white rounded-xl border border-gray-200 p-6">
-
-        @if($errors->any())
-        <div class="bg-red-50 border border-red-200 text-red-600 text-sm rounded p-3 mb-4">
-            {{ $errors->first() }}
+    {{-- Left brand panel (desktop only) --}}
+    <div class="hidden lg:flex flex-col justify-between w-1/2 bg-gradient-to-br from-brand-600 via-brand-500 to-warm-500 p-12 relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-20 -right-20 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 -left-10 w-64 h-64 bg-warm-500/20 rounded-full blur-3xl"></div>
         </div>
-        @endif
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+        <div class="relative">
+            <a href="{{ route('home') }}" class="flex items-center gap-2.5">
+                <x-logo variant="white" size="36" />
+                <span class="font-bold text-white text-xl">OnePazz</span>
+            </a>
+        </div>
 
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('auth.email') }}</label>
-                <input type="email" name="email" required
-                    class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+        <div class="relative">
+            <h2 class="text-3xl font-bold text-white leading-snug mb-4">
+                Cambodia's Corporate<br>Wellness Platform
+            </h2>
+            <p class="text-white/70 text-base leading-relaxed mb-8">
+                Connect your team with 120+ gyms and fitness studios across the Kingdom.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+                @foreach([['120+', 'Partner Gyms'], ['5,200+', 'Active Members'], ['48+', 'Companies', ], ['7', 'Provinces']] as [$n, $l])
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/15">
+                    <div class="text-2xl font-bold text-white">{{ $n }}</div>
+                    <div class="text-white/60 text-xs mt-0.5">{{ $l }}</div>
+                </div>
+                @endforeach
             </div>
+        </div>
 
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">{{ __('auth.password') }}</label>
-                <input type="password" name="password" required
-                    class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
-            </div>
-
-            <button type="submit"
-                class="w-full bg-teal-600 text-white font-semibold py-2 rounded text-sm">
-                {{ __('auth.sign_in') }}
-            </button>
-        </form>
+        <p class="relative text-white/40 text-xs">© {{ date('Y') }} OnePazz Co., Ltd · Phnom Penh, Cambodia</p>
     </div>
 
-    @if(config('app.env') === 'local')
-    <div class="mt-4 bg-white rounded-xl border border-gray-200 p-4">
-        <p class="text-xs text-gray-400 mb-2">Quick login:</p>
-        <button onclick="fillLogin('admin@onepazz.com.kh','adminpassword!')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Platform Admin — admin@onepazz.com.kh
-        </button>
-        <button onclick="fillLogin('sokha@smartretail.com.kh','password123')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Employer Admin — sokha@smartretail.com.kh
-        </button>
-        <button onclick="fillLogin('dara@smartretail.com.kh','password123')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Member — dara@smartretail.com.kh
-        </button>
-        <button onclick="fillLogin('gymadmin@fitrepublic.com.kh','password123')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Gym Admin — gymadmin@fitrepublic.com.kh
-        </button>
-        <button onclick="fillLogin('cashier@fitrepublic.com.kh','password123')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Cashier (staff) — cashier@fitrepublic.com.kh
-        </button>
-        <button onclick="fillLogin('manager@fitrepublic.com.kh','password123')"
-            class="block w-full text-left text-xs text-gray-600 hover:bg-gray-50 px-2 py-1.5 rounded">
-            Manager (staff) — manager@fitrepublic.com.kh
-        </button>
+    {{-- Right form panel --}}
+    <div class="flex-1 flex flex-col">
+
+        {{-- Mobile logo --}}
+        <div class="lg:hidden flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white">
+            <a href="{{ route('home') }}" class="flex items-center gap-2">
+                <x-logo variant="dark" size="28" />
+            </a>
+        </div>
+
+        <div class="flex-1 flex items-center justify-center p-6 md:p-10">
+            <div class="w-full max-w-sm">
+
+                {{-- Header --}}
+                <div class="mb-8">
+                    <h1 class="text-2xl font-bold text-gray-900">{{ __('auth.sign_in_heading') }}</h1>
+                    <p class="text-gray-500 text-sm mt-1">Welcome back — sign in to your account</p>
+                </div>
+
+                {{-- Error --}}
+                @if($errors->any())
+                <div class="bg-red-50 border border-red-200 text-red-600 text-sm rounded-2xl p-4 mb-6 flex items-start gap-2">
+                    <span class="shrink-0 font-bold">✕</span>
+                    <span>{{ $errors->first() }}</span>
+                </div>
+                @endif
+
+                <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                    @csrf
+
+                    <div>
+                        <label class="label">{{ __('auth.email') }}</label>
+                        <input type="email" name="email" value="{{ old('email') }}" required autofocus
+                            class="input" placeholder="you@company.com">
+                    </div>
+
+                    <div>
+                        <label class="label">{{ __('auth.password') }}</label>
+                        <input type="password" name="password" required
+                            class="input" placeholder="••••••••">
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full justify-center py-3 mt-2">
+                        {{ __('auth.sign_in') }}
+                    </button>
+                </form>
+
+                <p class="text-center text-sm text-gray-500 mt-6">
+                    Don't have an account?
+                    <a href="{{ route('employer-register.create') }}" class="text-brand-600 font-semibold hover:text-brand-700">Register your company</a>
+                </p>
+
+                {{-- Language toggle --}}
+                <div class="flex justify-center mt-8">
+                    <div class="flex items-center bg-gray-100 rounded-xl p-0.5">
+                        <form method="POST" action="{{ route('language.switch', 'en') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="px-3 py-1.5 text-xs font-medium rounded-lg transition-all {{ App::getLocale() === 'en' ? 'bg-white text-gray-800 shadow-sm' : 'text-gray-500 hover:text-gray-700' }}">EN</button>
+                        </form>
+                        <form method="POST" action="{{ route('language.switch', 'km') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="px-3 py-1.5 text-xs font-medium font-khmer rounded-lg transition-all {{ App::getLocale() === 'km' ? 'bg-white text-gray-800 shadow-sm' : 'text-gray-500 hover:text-gray-700' }}">ខ្មែរ</button>
+                        </form>
+                    </div>
+                </div>
+
+                @if(config('app.env') === 'local')
+                <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+                    <p class="text-xs font-semibold text-amber-700 mb-2">Quick login (dev only)</p>
+                    @foreach([
+                        ['admin@onepazz.com.kh', 'adminpassword!', 'Platform Admin'],
+                        ['sokha@smartretail.com.kh', 'password123', 'Employer Admin'],
+                        ['dara@smartretail.com.kh', 'password123', 'Member'],
+                        ['gymadmin@fitrepublic.com.kh', 'password123', 'Gym Admin'],
+                        ['cashier@fitrepublic.com.kh', 'password123', 'Cashier'],
+                        ['manager@fitrepublic.com.kh', 'password123', 'Manager'],
+                    ] as [$email, $pass, $label])
+                    <button onclick="fillLogin('{{ $email }}','{{ $pass }}')"
+                        class="block w-full text-left text-xs text-amber-800 hover:bg-amber-100 px-2 py-1.5 rounded-lg transition-colors">
+                        <span class="font-medium">{{ $label }}</span> — {{ $email }}
+                    </button>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
     </div>
-    @endif
 </div>
 
 <script>

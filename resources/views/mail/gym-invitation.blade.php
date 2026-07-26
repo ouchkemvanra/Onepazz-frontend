@@ -3,15 +3,15 @@
 <head><meta charset="UTF-8"><style>
 body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:0;}
 .wrap{max-width:560px;margin:40px auto;background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;}
-.header{background:linear-gradient(135deg,#0d9488,#0f766e);padding:40px 32px;text-align:center;}
+.header{background:linear-gradient(135deg,#0EA88A,#0EA88A);padding:40px 32px;text-align:center;}
 .header h1{color:#fff;margin:0 0 8px;font-size:24px;}
 .header p{color:#99f6e4;margin:0;font-size:14px;}
 .body{padding:32px;}
 .body p{color:#374151;line-height:1.6;margin:0 0 16px;}
-.message{background:#f0fdfa;border-left:4px solid #0d9488;border-radius:0 8px 8px 0;padding:16px;margin:20px 0;}
+.message{background:#f0fdfa;border-left:4px solid #0EA88A;border-radius:0 8px 8px 0;padding:16px;margin:20px 0;}
 .message p{margin:0;color:#374151;font-style:italic;}
 .btn-wrap{text-align:center;margin:28px 0;}
-.btn{display:inline-block;background:#0d9488;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;}
+.btn{display:inline-block;background:#0EA88A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;}
 .expiry{background:#fef9f0;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;text-align:center;}
 .expiry p{margin:0;color:#92400e;font-size:13px;}
 .footer{padding:24px 32px;border-top:1px solid #f3f4f6;text-align:center;}
@@ -20,7 +20,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 You're Invited to Join OnePazz</h1>
+        <h1><x-logo variant="white" size="20" style="vertical-align: -4px; margin-right: 6px" /> You're Invited to Join OnePazz</h1>
         <p>Cambodia's corporate wellness platform</p>
     </div>
     <div class="body">
@@ -41,7 +41,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
             <p>⏰ This invitation expires on <strong>{{ $application->invite_expires_at->format('d M Y') }}</strong></p>
         </div>
         <br>
-        <p style="font-size:13px;color:#6b7280;">If you have questions, contact us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a></p>
+        <p style="font-size:13px;color:#6b7280;">If you have questions, contact us at <a href="mailto:partners@onepazz.com.kh" style="color:#0EA88A;">partners@onepazz.com.kh</a></p>
         <p>The OnePazz Team</p>
     </div>
     <div class="footer">

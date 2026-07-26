@@ -7,7 +7,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: DejaVu Sans, Arial, sans-serif; font-size: 10px; color: #1f2937; background: #fff; }
 
-    .header { background: #0f766e; color: white; padding: 18px 24px; margin-bottom: 16px; }
+    .header { background: #0EA88A; color: white; padding: 18px 24px; margin-bottom: 16px; }
     .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
     .brand { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
     .brand-sub { font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 2px; }
@@ -19,21 +19,21 @@
 
     .summary { display: flex; gap: 12px; margin-bottom: 18px; }
     .stat-box { flex: 1; background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 6px; padding: 10px 14px; }
-    .stat-label { font-size: 9px; font-weight: 600; color: #0f766e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
-    .stat-value { font-size: 22px; font-weight: 700; color: #0f766e; }
+    .stat-label { font-size: 9px; font-weight: 600; color: #0EA88A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .stat-value { font-size: 22px; font-weight: 700; color: #0EA88A; }
     .stat-sub { font-size: 9px; color: #6b7280; margin-top: 2px; }
 
     .section-title { font-size: 11px; font-weight: 700; color: #374151; margin-bottom: 8px; border-bottom: 1px solid #e5e7eb; padding-bottom: 5px; }
 
     table { width: 100%; border-collapse: collapse; font-size: 9px; }
-    thead tr { background: #0f766e; color: white; }
+    thead tr { background: #0EA88A; color: white; }
     thead th { padding: 7px 8px; text-align: left; font-weight: 600; font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
     tbody tr:nth-child(even) { background: #f9fafb; }
     tbody tr:nth-child(odd)  { background: #ffffff; }
     tbody td { padding: 6px 8px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
     tbody tr:last-child td { border-bottom: none; }
 
-    .card-no { font-family: DejaVu Sans Mono, monospace; color: #0f766e; font-size: 8.5px; }
+    .card-no { font-family: DejaVu Sans Mono, monospace; color: #0EA88A; font-size: 8.5px; }
     .badge { display: inline-block; padding: 2px 6px; border-radius: 99px; font-size: 8px; font-weight: 600; }
     .badge-dept { background: #eff6ff; color: #1d4ed8; }
     .empty { text-align: center; padding: 32px; color: #9ca3af; font-style: italic; }
@@ -136,7 +136,7 @@
                     <td style="font-weight:500;">{{ $c->gym?->name ?? '—' }}</td>
                     <td style="color:#6b7280;">{{ $c->gym?->city ?? '—' }}</td>
                     <td style="white-space:nowrap;">{{ $c->checked_in_at->format('d M Y') }}</td>
-                    <td style="font-family: DejaVu Sans Mono, monospace; color:#0f766e;">{{ $c->checked_in_at->format('H:i') }}</td>
+                    <td style="font-family: DejaVu Sans Mono, monospace; color:#0EA88A;">{{ $c->checked_in_at->format('H:i') }}</td>
                     <td style="text-align:center;">{{ $c->duration_minutes ?? '—' }}</td>
                 </tr>
                 @endforeach

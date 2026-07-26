@@ -10,8 +10,8 @@
 <div style="max-width: 560px; margin: 0 auto; background: white; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden;">
 
     {{-- Header --}}
-    <div style="background: #0f766e; padding: 24px 32px;">
-        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 OnePazz</p>
+    <div style="background: #0EA88A; padding: 24px 32px;">
+        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;"><x-logo variant="white" size="18" style="vertical-align: -3px; margin-right: 6px" /> OnePazz</p>
     </div>
 
     {{-- Body --}}
@@ -56,7 +56,7 @@
         @endif
 
         <a href="{{ config('app.url') }}/dashboard"
-           style="display: inline-block; background: #0f766e; color: white; text-decoration: none; padding: 11px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;">
+           style="display: inline-block; background: #0EA88A; color: white; text-decoration: none; padding: 11px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;">
             Go to Dashboard →
         </a>
     </div>

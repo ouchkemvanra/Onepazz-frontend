@@ -3,17 +3,17 @@
 <head><meta charset="UTF-8"><style>
 body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:0;}
 .wrap{max-width:560px;margin:40px auto;background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;}
-.header{background:linear-gradient(135deg,#1e3a5f,#0d9488);padding:40px 32px;text-align:center;}
+.header{background:linear-gradient(135deg,#065f46,#0EA88A);padding:40px 32px;text-align:center;}
 .header h1{color:#fff;margin:0 0 6px;font-size:22px;}
 .header p{color:#99f6e4;margin:0;font-size:13px;}
 .body{padding:32px;}
 p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
-.msg{background:#f0fdfa;border-left:4px solid #0d9488;border-radius:0 8px 8px 0;padding:14px;margin:16px 0;}
+.msg{background:#f0fdfa;border-left:4px solid #0EA88A;border-radius:0 8px 8px 0;padding:14px;margin:16px 0;}
 .msg p{margin:0;font-style:italic;}
 .plan{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;margin:16px 0;text-align:center;}
 .plan p{margin:0;font-size:13px;color:#374151;}
 .btn-wrap{text-align:center;margin:24px 0;}
-.btn{display:inline-block;background:#0d9488;color:#fff;text-decoration:none;padding:13px 32px;border-radius:8px;font-weight:600;font-size:15px;}
+.btn{display:inline-block;background:#0EA88A;color:#fff;text-decoration:none;padding:13px 32px;border-radius:8px;font-weight:600;font-size:15px;}
 .expiry{background:#fef9f0;border:1px solid #fde68a;border-radius:8px;padding:10px;text-align:center;}
 .expiry p{margin:0;color:#92400e;font-size:12px;}
 .footer{padding:20px 32px;border-top:1px solid #f3f4f6;text-align:center;}
@@ -22,7 +22,7 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
 <body>
 <div class="wrap">
     <div class="header">
-        <h1>🏃 You're Invited to OnePazz</h1>
+        <h1><x-logo variant="white" size="20" style="vertical-align: -4px; margin-right: 6px" /> You're Invited to OnePazz</h1>
         <p>Corporate Wellness for Cambodia's Leading Companies</p>
     </div>
     <div class="body">
@@ -47,7 +47,7 @@ p{color:#374151;line-height:1.6;margin:0 0 14px;font-size:14px;}
             <p>⏰ This invitation expires on <strong>{{ $invitation->invite_expires_at->format('d M Y') }}</strong></p>
         </div>
         <br>
-        <p style="font-size:12px;color:#6b7280;">Questions? Email us at <a href="mailto:partners@onepazz.com.kh" style="color:#0d9488;">partners@onepazz.com.kh</a></p>
+        <p style="font-size:12px;color:#6b7280;">Questions? Email us at <a href="mailto:partners@onepazz.com.kh" style="color:#0EA88A;">partners@onepazz.com.kh</a></p>
     </div>
     <div class="footer"><p>OnePazz · Phnom Penh, Cambodia</p></div>
 </div>

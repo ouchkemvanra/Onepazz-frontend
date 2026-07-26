@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partner Terms & Conditions — OnePazz</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
-    <style>body{font-family:'DM Sans',sans-serif;} h2{font-size:1rem;font-weight:600;margin:2rem 0 0.5rem;color:#111827;} p,li{color:#374151;line-height:1.75;font-size:0.9rem;} ul{padding-left:1.25rem;margin:0.5rem 0;list-style:disc;} ol{padding-left:1.25rem;margin:0.5rem 0;}</style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .prose h2{font-size:1rem;font-weight:700;margin:2rem 0 0.5rem;color:#111827;}
+        .prose p,.prose li{color:#374151;line-height:1.75;font-size:0.9rem;}
+        .prose ul{padding-left:1.25rem;margin:0.5rem 0;list-style:disc;}
+        .prose ol{padding-left:1.25rem;margin:0.5rem 0;}
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 font-sans">
 
-<nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
-            <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            OnePazz
+        <a href="/" class="flex items-center">
+            <x-logo variant="dark" size="32" />
         </a>
-        <a href="{{ route('gym-apply.create') }}" class="text-sm text-teal-600 hover:text-teal-700">← Back to Application</a>
+        <a href="{{ route('gym-apply.create') }}" class="text-sm text-brand-600 hover:text-brand-700 font-medium">← Back to Application</a>
     </div>
 </nav>
 
 <div class="max-w-3xl mx-auto px-6 py-12">
 
     <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-800">Partner Terms & Conditions</h1>
+        <h1 class="text-3xl font-bold text-gray-900">Partner Terms & Conditions</h1>
         <p class="text-sm text-gray-400 mt-2">Last updated: June 2026</p>
     </div>
 
-    <div class="bg-white rounded-xl border border-gray-200 p-8">
+    <div class="card p-8 prose">
 
         <p>These Partner Terms and Conditions ("Agreement") govern the relationship between <strong>OnePazz</strong> ("Platform", "we", "us") and the gym, fitness studio, or wellness centre ("Partner", "you") that registers to participate in the OnePazz partner network. By submitting an application or accepting a partner invitation, you agree to be bound by this Agreement.</p>
 
@@ -125,12 +128,10 @@
         <p>This Agreement is governed by the laws of the Kingdom of Cambodia. Any disputes shall be resolved through good-faith negotiation, failing which through the relevant courts of Phnom Penh.</p>
 
         <h2>15. Contact</h2>
-        <p>For questions about these terms, please contact us at <a href="mailto:partners@onepazz.com.kh" class="text-teal-600 hover:underline">partners@onepazz.com.kh</a>.</p>
+        <p>For questions about these terms, please contact us at <a href="mailto:partners@onepazz.com.kh" class="text-brand-600 hover:text-brand-700">partners@onepazz.com.kh</a>.</p>
 
         <div class="mt-8 pt-6 border-t border-gray-100 text-center">
-            <a href="{{ route('gym-apply.create') }}" class="inline-block bg-teal-600 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-teal-700 transition text-sm">
-                Back to Application →
-            </a>
+            <a href="{{ route('gym-apply.create') }}" class="btn-primary">Back to Application →</a>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#f9fafb;margin:0;padding:
 .row span:first-child{color:#9ca3af;}
 .row span:last-child{color:#111827;font-weight:500;}
 .btn-wrap{text-align:center;margin:24px 0 0;}
-.btn{display:inline-block;background:#0d9488;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;}
+.btn{display:inline-block;background:#0EA88A;color:#fff;text-decoration:none;padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;}
 </style></head>
 <body>
 <div class="wrap">

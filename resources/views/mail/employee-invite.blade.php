@@ -10,8 +10,8 @@
 <div style="max-width: 560px; margin: 0 auto; background: white; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden;">
 
     {{-- Header --}}
-    <div style="background: #0f766e; padding: 24px 32px;">
-        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;">🏃 OnePazz</p>
+    <div style="background: #0EA88A; padding: 24px 32px;">
+        <p style="color: white; font-size: 18px; font-weight: 700; margin: 0;"><x-logo variant="white" size="18" style="vertical-align: -3px; margin-right: 6px" /> OnePazz</p>
         <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin: 4px 0 0;">Cambodia's Corporate Wellness Platform</p>
     </div>
 
@@ -26,7 +26,7 @@
 
         {{-- Login Credentials --}}
         <div style="background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 8px; padding: 20px; margin: 24px 0;">
-            <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #0f766e; text-transform: uppercase; letter-spacing: 0.05em;">Your Login Details</p>
+            <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #0EA88A; text-transform: uppercase; letter-spacing: 0.05em;">Your Login Details</p>
             <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
                 <tr>
                     <td style="color: #6b7280; padding: 5px 0; width: 120px;">Email</td>
@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <td style="color: #6b7280; padding: 5px 0; border-top: 1px solid #ccfbf1;">Membership Card</td>
-                    <td style="font-family: monospace; color: #0f766e; font-weight: 600; border-top: 1px solid #ccfbf1;">{{ $employee->membership_card_no }}</td>
+                    <td style="font-family: monospace; color: #0EA88A; font-weight: 600; border-top: 1px solid #ccfbf1;">{{ $employee->membership_card_no }}</td>
                 </tr>
             </table>
         </div>
@@ -48,7 +48,7 @@
         </p>
 
         <a href="{{ config('app.url') }}/login"
-           style="display: inline-block; background: #0f766e; color: white; text-decoration: none; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.01em;">
+           style="display: inline-block; background: #0EA88A; color: white; text-decoration: none; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.01em;">
             Sign In to OnePazz →
         </a>
 

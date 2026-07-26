@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body style="font-family:sans-serif;color:#374151;padding:32px;">
-<h2 style="color:#0d9488;">You've been added to {{ $staffRecord->gym->name }}</h2>
+<h2 style="color:#0EA88A;">You've been added to {{ $staffRecord->gym->name }}</h2>
 <p>Hi {{ $staffRecord->user->full_name }},</p>
 <p>You have been added as <strong>{{ ucfirst($staffRecord->role) }}</strong> at <strong>{{ $staffRecord->gym->name }}</strong> on the OnePazz platform.</p>
 @if($tempPassword)
@@ -11,7 +11,7 @@
     <p style="margin:0;">Password: <strong>{{ $tempPassword }}</strong></p>
     <p style="margin:8px 0 0;font-size:12px;color:#6b7280;">Please change your password after your first login.</p>
 </div>
-<p><a href="{{ url('/login') }}" style="background:#0d9488;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;">Login to OnePazz</a></p>
+<p><a href="{{ url('/login') }}" style="background:#0EA88A;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;">Login to OnePazz</a></p>
 @else
 <p>You can now access the check-in screen at <a href="{{ url('/gym-portal/checkin-screen') }}">{{ url('/gym-portal/checkin-screen') }}</a>.</p>
 @endif

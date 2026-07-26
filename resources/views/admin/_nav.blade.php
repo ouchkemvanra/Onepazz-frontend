@@ -1,8 +1,8 @@
 <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2 text-teal-600 font-bold text-lg">
-            <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white text-sm">🏃</div>
-            OnePazz Admin
+        <a href="/" class="flex items-center gap-1.5 text-teal-600 font-bold text-lg">
+            <x-logo variant="dark" size="32" />
+            <span>Admin</span>
         </a>
         <div class="flex items-center gap-1">
             @php
