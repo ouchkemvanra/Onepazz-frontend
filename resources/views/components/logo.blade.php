@@ -4,13 +4,16 @@
 ])
 
 {{--
-    There's no transparent white full wordmark asset yet, only an icon-only
-    white PNG. So variant="white" renders icon-only — callers on dark/teal
-    backgrounds that need the "OnePazz" text should keep their own text span
-    next to <x-logo variant="white">.
+    variant="dark"       — full color wordmark, for light backgrounds.
+    variant="white"      — icon only, white, for dark backgrounds (pair with your own text).
+    variant="white-full" — icon + "onepazz" wordmark, white, for dark backgrounds.
 --}}
 @php
-    $src = $variant === 'white' ? asset('images/logo.png') : asset('images/logo-dark.png');
+    $src = match ($variant) {
+        'white'      => asset('images/logo.png'),
+        'white-full' => asset('images/logo-white-full.png'),
+        default      => asset('images/logo-dark.png'),
+    };
 @endphp
 
 <img

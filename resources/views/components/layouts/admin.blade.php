@@ -17,8 +17,7 @@
         {{-- Logo --}}
         <div class="px-5 py-5 border-b border-slate-800">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
-                <x-logo variant="white" size="28" />
-                <span class="font-bold text-white text-base">OnePazz</span>
+                <x-logo variant="white-full" size="28" />
             </a>
             <p class="text-xs text-slate-500 mt-1">Admin Panel</p>
         </div>

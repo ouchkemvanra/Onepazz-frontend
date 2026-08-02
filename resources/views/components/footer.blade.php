@@ -5,8 +5,7 @@
             {{-- Brand --}}
             <div class="md:col-span-1">
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5 mb-4">
-                    <x-logo variant="white" size="32" />
-                    <span class="font-bold text-white text-lg">OnePazz</span>
+                    <x-logo variant="white-full" size="32" />
                 </a>
                 <p class="text-sm leading-relaxed text-gray-500">Cambodia's Corporate Wellness Platform. Connecting teams with the best gyms across the Kingdom.</p>
             </div>

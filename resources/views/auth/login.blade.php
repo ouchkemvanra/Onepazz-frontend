@@ -19,8 +19,7 @@
 
         <div class="relative">
             <a href="{{ route('home') }}" class="flex items-center gap-2.5">
-                <x-logo variant="white" size="36" />
-                <span class="font-bold text-white text-xl">OnePazz</span>
+                <x-logo variant="white-full" size="36" />
             </a>
         </div>
 
