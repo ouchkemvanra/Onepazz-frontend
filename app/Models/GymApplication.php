@@ -8,7 +8,7 @@ class GymApplication extends Model
 {
     protected $fillable = [
         'studio_name', 'studio_name_kh', 'contact_name', 'contact_email',
-        'contact_phone', 'address', 'district', 'city',
+        'contact_phone', 'address', 'district', 'city', 'latitude', 'longitude',
         'activity_types', 'description', 'website',
         'status', 'reviewed_at', 'reviewed_by', 'rejection_reason', 'notes',
         'invite_token', 'invite_sent_at', 'invite_expires_at', 'invited_by', 'source',

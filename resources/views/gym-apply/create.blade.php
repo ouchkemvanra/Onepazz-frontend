@@ -135,6 +135,7 @@
                         </select>
                     </div>
                 </div>
+                <x-location-picker />
             </div>
         </div>
 

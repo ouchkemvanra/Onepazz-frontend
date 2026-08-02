@@ -151,6 +151,8 @@ class AdminController extends Controller
                 'address_line1' => $application->address,
                 'district'      => $application->district,
                 'city'          => $application->city,
+                'latitude'      => $application->latitude,
+                'longitude'     => $application->longitude,
                 'activity_types'=> $application->activity_types,
                 'description'   => $application->description,
                 'website'       => $application->website,

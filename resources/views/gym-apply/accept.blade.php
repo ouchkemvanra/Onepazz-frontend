@@ -79,6 +79,7 @@
                     </select>
                 </div>
             </div>
+            <x-location-picker :latitude="$application->latitude" :longitude="$application->longitude" />
         </div>
 
         <button type="submit" class="btn-primary w-full justify-center py-3 text-base">Submit Profile →</button>
