@@ -98,15 +98,52 @@
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
 
         {{-- Mobile top bar --}}
-        <div class="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-100" x-data="{ open: false }">
-            <a href="{{ route('gym-portal.index') }}" class="flex items-center gap-2">
-                <x-logo variant="dark" size="28" />
-            </a>
-            <button @click="open = !open" class="btn-ghost p-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+        <div class="lg:hidden bg-white border-b border-gray-100" x-data="{ open: false }">
+            <div class="flex items-center justify-between px-4 py-3">
+                <a href="{{ route('gym-portal.index') }}" class="flex items-center gap-2">
+                    <x-logo variant="dark" size="28" />
+                </a>
+                <button @click="open = !open" class="btn-ghost p-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <nav x-show="open" x-cloak @click.outside="open = false" class="px-3 pb-3 space-y-0.5 border-t border-gray-100 pt-2">
+                <a href="{{ route('gym-portal.index') }}" class="{{ $gpActive('gym-portal.index') }}">
+                    <span class="text-base">📊</span> Overview
+                </a>
+                <a href="{{ route('gym-portal.earnings') }}" class="{{ $gpActive('gym-portal.earnings') }}">
+                    <span class="text-base">💰</span> Earnings
+                </a>
+                <a href="{{ route('gym-portal.bookings') }}" class="{{ $gpActive('gym-portal.bookings') }}">
+                    <span class="text-base">📅</span> Bookings
+                </a>
+                <a href="{{ route('gym-portal.classes') }}" class="{{ $gpActive('gym-portal.classes') }}">
+                    <span class="text-base">🏃</span> Classes
+                </a>
+                <a href="{{ route('gym-portal.reviews') }}" class="{{ $gpActive('gym-portal.reviews') }}">
+                    <span class="text-base">⭐</span> Reviews
+                </a>
+                <a href="{{ route('gym-portal.staff.index') }}" class="{{ $gpActive('gym-portal.staff*') }}">
+                    <span class="text-base">👥</span> Staff
+                </a>
+                <a href="{{ route('gym-portal.qr-code') }}" class="{{ $gpActive('gym-portal.qr-code') }}">
+                    <span class="text-base">📱</span> QR Code
+                </a>
+                <a href="{{ route('gym-portal.checkin-screen') }}" class="{{ $gpActive('gym-portal.checkin-screen') }}">
+                    <span class="text-base">🖥️</span> Check-in Screen
+                </a>
+                <a href="{{ route('gym-portal.profile') }}" class="{{ $gpActive('gym-portal.profile') }}">
+                    <span class="text-base">🏋️</span> Gym Profile
+                </a>
+                <form method="POST" action="{{ route('logout') }}" class="pt-1 border-t border-gray-100 mt-1">
+                    @csrf
+                    <button class="sidebar-link-inactive w-full text-red-500 hover:text-red-600 hover:bg-red-50">
+                        <span class="text-base">🚪</span> Logout
+                    </button>
+                </form>
+            </nav>
         </div>
 
         {{-- Flash --}}
