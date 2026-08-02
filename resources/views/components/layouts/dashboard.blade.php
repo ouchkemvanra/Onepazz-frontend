@@ -43,6 +43,7 @@
             @php
                 $navActive = fn($route) => request()->routeIs($route) ? 'sidebar-link-active' : 'sidebar-link-inactive';
             @endphp
+            @if($employer)
             <a href="{{ route('dashboard.index') }}" class="{{ $navActive('dashboard.index') }}">
                 <span class="text-base">📊</span> {{ __('nav.dashboard') }}
             </a>
@@ -51,6 +52,10 @@
             </a>
             <a href="{{ route('dashboard.billing.index') }}" class="{{ $navActive('dashboard.billing.*') }}">
                 <span class="text-base">💳</span> {{ __('nav.billing') }}
+            </a>
+            @endif
+            <a href="{{ route('profile.index') }}" class="{{ $navActive('profile.index') }}">
+                <span class="text-base">👤</span> {{ __('nav.profile') }}
             </a>
             <a href="{{ route('gyms.index') }}" class="{{ $navActive('gyms.*') }}">
                 <span class="text-base">🏋️</span> {{ __('nav.gyms') }}
@@ -81,15 +86,42 @@
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
 
         {{-- Mobile top bar --}}
-        <div class="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-100">
-            <a href="{{ route('home') }}" class="flex items-center gap-2">
-                <x-logo variant="dark" size="28" />
-            </a>
-            <button @click="sidebarOpen = !sidebarOpen" class="btn-ghost p-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+        <div class="lg:hidden bg-white border-b border-gray-100">
+            <div class="flex items-center justify-between px-4 py-3">
+                <a href="{{ route('home') }}" class="flex items-center gap-2">
+                    <x-logo variant="dark" size="28" />
+                </a>
+                <button @click="sidebarOpen = !sidebarOpen" class="btn-ghost p-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <nav x-show="sidebarOpen" x-cloak @click.outside="sidebarOpen = false" class="px-3 pb-3 space-y-0.5 border-t border-gray-100 pt-2">
+                @if($employer)
+                <a href="{{ route('dashboard.index') }}" class="{{ $navActive('dashboard.index') }}">
+                    <span class="text-base">📊</span> {{ __('nav.dashboard') }}
+                </a>
+                <a href="{{ route('dashboard.employees.index') }}" class="{{ $navActive('dashboard.employees.*') }}">
+                    <span class="text-base">👥</span> {{ __('nav.employees') }}
+                </a>
+                <a href="{{ route('dashboard.billing.index') }}" class="{{ $navActive('dashboard.billing.*') }}">
+                    <span class="text-base">💳</span> {{ __('nav.billing') }}
+                </a>
+                @endif
+                <a href="{{ route('profile.index') }}" class="{{ $navActive('profile.index') }}">
+                    <span class="text-base">👤</span> {{ __('nav.profile') }}
+                </a>
+                <a href="{{ route('gyms.index') }}" class="{{ $navActive('gyms.*') }}">
+                    <span class="text-base">🏋️</span> {{ __('nav.gyms') }}
+                </a>
+                <form method="POST" action="{{ route('logout') }}" class="pt-1 border-t border-gray-100 mt-1">
+                    @csrf
+                    <button class="sidebar-link-inactive w-full text-red-500 hover:text-red-600 hover:bg-red-50">
+                        <span class="text-base">🚪</span> {{ __('nav.logout') }}
+                    </button>
+                </form>
+            </nav>
         </div>
 
         {{-- Flash messages --}}
