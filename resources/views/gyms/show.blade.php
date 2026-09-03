@@ -4,7 +4,7 @@
 <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-brand-900 text-white">
     <div class="max-w-6xl mx-auto px-6 py-10">
         <a href="{{ route('gyms.index') }}" class="inline-flex items-center gap-1.5 text-white/50 hover:text-white/80 text-sm mb-6 transition-colors">
-            ← {{ __('gym.back_to_gyms') }}
+            {{ __('gym.back_to_gyms') }}
         </a>
         <div class="flex gap-5 items-start">
             <div class="w-20 h-20 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-4xl flex-shrink-0 backdrop-blur-sm">
