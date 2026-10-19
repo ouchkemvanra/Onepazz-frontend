@@ -72,7 +72,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div><label class="label">City</label><input type="text" name="city" value="{{ old('city', 'Phnom Penh') }}" class="input"></div>
+                <div><label class="label">Address Line 1 *</label><input type="text" name="address_line1" value="{{ old('address_line1') }}" class="input" placeholder="Street address"></div>
+                <div><label class="label">City *</label><input type="text" name="city" value="{{ old('city', 'Phnom Penh') }}" class="input"></div>
+                <div><label class="label">Province *</label><input type="text" name="province" value="{{ old('province', 'Phnom Penh') }}" class="input"></div>
             </div>
         </div>
 

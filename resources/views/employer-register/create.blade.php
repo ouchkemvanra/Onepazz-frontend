@@ -28,6 +28,8 @@
 
         v: {
             company_name:   '{{ old('company_name', $invitation?->company_name ?? '') }}',
+            address_line1:  '{{ old('address_line1') }}',
+            province:       '{{ old('province', 'Phnom Penh') }}',
             contact_name:   '{{ old('contact_name', $invitation?->contact_name ?? '') }}',
             contact_email:  '{{ old('contact_email', $invitation?->contact_email ?? '') }}',
             admin_name:     '{{ old('admin_name') }}',
@@ -48,6 +50,8 @@
             const v = this.v;
             return {
                 company_name:          !v.company_name.trim()           ? 'Company name is required' : '',
+                address_line1:         !v.address_line1.trim()          ? 'Address is required' : '',
+                province:              !v.province.trim()               ? 'Province is required' : '',
                 contact_name:          !v.contact_name.trim()           ? 'Full name is required' : '',
                 contact_email:         !v.contact_email.trim()          ? 'Email is required'
                                      : !this.validEmail(v.contact_email) ? 'Enter a valid email address' : '',
@@ -67,7 +71,8 @@
         err(f) { return this.touched[f] ? this.errors[f] : '' },
 
         get step1Valid() {
-            return !this.errors.company_name && !this.errors.contact_name && !this.errors.contact_email
+            return !this.errors.company_name && !this.errors.address_line1 && !this.errors.province
+                && !this.errors.contact_name && !this.errors.contact_email
         },
         get step2Valid() {
             return !this.errors.plan_id && !this.errors.employee_count
@@ -79,7 +84,7 @@
         goStep(n) {
             if (n > this.step) {
                 if (this.step === 1) {
-                    this.touchAll(['company_name','contact_name','contact_email'])
+                    this.touchAll(['company_name','address_line1','province','contact_name','contact_email'])
                     if (!this.step1Valid) return
                 }
                 if (this.step === 2) {
@@ -178,8 +183,24 @@
                         </select>
                     </div>
                     <div>
-                        <label class="label">City</label>
+                        <label class="label">Address Line 1 *</label>
+                        <input type="text" name="address_line1" x-model="v.address_line1"
+                            @blur="touch('address_line1')"
+                            :class="err('address_line1') ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : ''"
+                            class="input" placeholder="Street address">
+                        <p x-show="err('address_line1')" x-text="err('address_line1')" class="mt-1 text-xs text-red-500"></p>
+                    </div>
+                    <div>
+                        <label class="label">City *</label>
                         <input type="text" name="city" value="{{ old('city', 'Phnom Penh') }}" class="input">
+                    </div>
+                    <div>
+                        <label class="label">Province *</label>
+                        <input type="text" name="province" x-model="v.province"
+                            @blur="touch('province')"
+                            :class="err('province') ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : ''"
+                            class="input" placeholder="e.g. Phnom Penh">
+                        <p x-show="err('province')" x-text="err('province')" class="mt-1 text-xs text-red-500"></p>
                     </div>
                 </div>
             </div>
