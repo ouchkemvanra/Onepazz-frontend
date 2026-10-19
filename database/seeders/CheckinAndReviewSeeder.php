@@ -53,7 +53,7 @@ class CheckinAndReviewSeeder extends Seeder
             [$fitRepublic, $sokha,  5, 'Best gym in Phnom Penh. Equipment is always clean and the pool is amazing!'],
             [$fitRepublic, $dara,   5, 'ចូលចិត្តណាស់! ឧបករណ៍ល្អ ហើយគ្រូបង្រៀនជួយខ្ញុំច្រើន។'],
             [$yoga,        $chenda, 5, 'Peaceful atmosphere and excellent instructors. Highly recommend the Saturday class.'],
-            [$boxing,      $sokha,  4, 'Great for authentic Muay Thai. Coaches are experienced champions.'],
+            [$boxing,      $sokha,  4, 'Great for authentic Kun Khmer. Coaches are experienced champions.'],
         ];
 
         foreach ($reviews as [$gym, $user, $rating, $comment]) {

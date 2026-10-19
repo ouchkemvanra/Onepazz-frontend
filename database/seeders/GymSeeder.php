@@ -113,7 +113,7 @@ class GymSeeder extends Seeder
                 ['name' => 'Morning Yoga Flow',      'trainer_name' => 'Ratana S.',  'class_type' => 'yoga',     'day_of_week' => json_encode([1,3,5]),     'start_time' => '06:00', 'duration_minutes' => 60, 'max_capacity' => 15],
                 ['name' => 'HIIT Circuit Training',  'trainer_name' => 'Dara M.',    'class_type' => 'hiit',     'day_of_week' => json_encode([2,4]),        'start_time' => '08:30', 'duration_minutes' => 45, 'max_capacity' => 20],
                 ['name' => 'Power Pump',              'trainer_name' => 'Chenda R.',  'class_type' => 'weights',  'day_of_week' => json_encode([1,2,3,4,5]), 'start_time' => '19:30', 'duration_minutes' => 60, 'max_capacity' => 25],
-                ['name' => 'Muay Thai Fundamentals', 'trainer_name' => 'Sopheak K.', 'class_type' => 'muay_thai','day_of_week' => json_encode([1,3,5]),     'start_time' => '18:00', 'duration_minutes' => 75, 'max_capacity' => 12],
+                ['name' => 'Kun Khmer Fundamentals', 'trainer_name' => 'Sopheak K.', 'class_type' => 'muay_thai','day_of_week' => json_encode([1,3,5]),     'start_time' => '18:00', 'duration_minutes' => 75, 'max_capacity' => 12],
             ];
             foreach ($classes as $class) {
                 GymClass::updateOrCreate(
